@@ -16,6 +16,13 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 {
     options.SignIn.RequireConfirmedAccount = true;  // Yêu cầu xác nhận tài khoản qua email
+    options.Password.RequireDigit = true;           // Bắt buộc có số
+    options.Password.RequireLowercase = true;       // Bắt buộc có chữ thường
+    options.Password.RequireUppercase = true;       // Bắt buộc có chữ hoa
+    options.Password.RequireNonAlphanumeric = true; // Bắt buộc có ký tự đặc biệt
+    options.Password.RequiredLength = 8;            // Độ dài tối thiểu là 8
+    options.Lockout.MaxFailedAccessAttempts = 5;    // Khóa tài khoản sau 5 lần nhập sai
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10); // Khóa trong 10 phút
 }).AddEntityFrameworkStores<ApplicationDbContext>();
 
 
