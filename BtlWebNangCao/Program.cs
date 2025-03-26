@@ -1,4 +1,4 @@
-﻿using BtlWebNangCao.Data;
+using BtlWebNangCao.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,7 +13,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
 {
     options.SignIn.RequireConfirmedAccount = true;  // Yêu cầu xác nhận tài khoản qua email
     options.Password.RequireDigit = true;           // Bắt buộc có số
@@ -25,6 +25,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
     options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10); // Khóa trong 10 phút
 }).AddEntityFrameworkStores<ApplicationDbContext>();
 
+builder.Configuration.AddUserSecrets<Program>(); // Đọc từ User Secrets
 
 var app = builder.Build();
 
