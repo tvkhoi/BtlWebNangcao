@@ -1,14 +1,23 @@
-using BtlWebNangCao.Data;
+﻿using BtlWebNangCao.Data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages(); // Hỗ trợ Razor Pages (cho Identity UI)
 
-// ??ng k� DbContext
+// đăng ký DbContext
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = true;  // Yêu cầu xác nhận tài khoản qua email
+}).AddEntityFrameworkStores<ApplicationDbContext>();
+
 
 var app = builder.Build();
 
@@ -25,7 +34,11 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+
+app.UseAuthentication(); // Bật middleware xác thực
 app.UseAuthorization();
+
+app.MapRazorPages(); // Đăng ký Razor Pages để sử dụng Identity UI
 
 app.MapControllerRoute(
     name: "default",

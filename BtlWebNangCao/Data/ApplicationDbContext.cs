@@ -1,10 +1,12 @@
 ﻿using BtlWebNangCao.Models;
 using Microsoft.EntityFrameworkCore;
+
 namespace BtlWebNangCao.Data
 {
     public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
+
         public DbSet<NguoiDung> NguoiDungs { get; set; }
         public DbSet<PhongChat> PhongChats { get; set; }
         public DbSet<ThanhVienPhong> ThanhVienPhongs { get; set; }
@@ -22,10 +24,44 @@ namespace BtlWebNangCao.Data
             modelBuilder.Entity<NguoiDung>()
                 .HasIndex(nd => nd.TenDangNhap)
                 .IsUnique();
-
             modelBuilder.Entity<NguoiDung>()
                 .HasIndex(nd => nd.Email)
                 .IsUnique();
+
+            // Quan hệ giữa ThanhVienPhong và NguoiDung
+            modelBuilder.Entity<ThanhVienPhong>()
+                .HasOne(tv => tv.NguoiDung)
+                .WithMany(nd => nd.DanhSachPhongThamGia)
+                .HasForeignKey(tv => tv.MaNguoiDung)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            // Quan hệ giữa ThanhVienPhong và PhongChat
+            modelBuilder.Entity<ThanhVienPhong>()
+                .HasOne(tv => tv.PhongChat)
+                .WithMany(pc => pc.DanhSachThanhVien)
+                .HasForeignKey(tv => tv.MaPhong)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            // Quan hệ giữa PhongChat và NguoiDung (người tạo)
+            modelBuilder.Entity<PhongChat>()
+                .HasOne(pc => pc.NguoiTao)
+                .WithMany(nd => nd.DanhSachPhongTao)
+                .HasForeignKey(pc => pc.MaNguoiTao)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // Quan hệ giữa TinNhan và PhongChat
+            modelBuilder.Entity<TinNhan>()
+                .HasOne(tn => tn.PhongChat)
+                .WithMany(pc => pc.DanhSachTinNhan)
+                .HasForeignKey(tn => tn.MaPhong)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            // Quan hệ giữa TinNhan và NguoiDung (người gửi)
+            modelBuilder.Entity<TinNhan>()
+                .HasOne(tn => tn.NguoiGui)
+                .WithMany(nd => nd.DanhSachTinNhan)
+                .HasForeignKey(tn => tn.MaNguoiGui)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

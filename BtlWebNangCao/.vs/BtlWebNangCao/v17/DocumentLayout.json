@@ -1,34 +1,34 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangCao\\",
+  "WorkspaceRootPath": "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangcao\\BtlWebNangCao\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\learn_advanced_web_programming\\btl\\btlwebnangcao\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\learn_advanced_web_programming\\btl\\btlwebnangcao\\btlwebnangcao\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangcao\\BtlWebNangCao\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\learn_advanced_web_programming\\btl\\btlwebnangcao\\models\\tinnhan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:models\\tinnhan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\learn_advanced_web_programming\\btl\\btlwebnangcao\\models\\thanhvienphong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:models\\thanhvienphong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\learn_advanced_web_programming\\btl\\btlwebnangcao\\models\\phongchat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:models\\phongchat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\learn_advanced_web_programming\\btl\\btlwebnangcao\\models\\nguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:models\\nguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\learn_advanced_web_programming\\btl\\btlwebnangcao\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangcao\\BtlWebNangCao\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\learn_advanced_web_programming\\btl\\btlwebnangcao\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangcao\\BtlWebNangCao\\models\\thanhvienphong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:models\\thanhvienphong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangcao\\BtlWebNangCao\\models\\phongchat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:models\\phongchat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangcao\\BtlWebNangCao\\models\\tinnhan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:models\\tinnhan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangcao\\BtlWebNangCao\\models\\nguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:models\\nguoidung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -37,8 +37,8 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedHeight": 59,
-          "SelectedChildIndex": 9,
+          "DockedHeight": 35,
+          "SelectedChildIndex": 14,
           "Children": [
             {
               "$type": "Bookmark",
@@ -78,91 +78,91 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangCao\\Data\\ApplicationDbContext.cs",
+              "DocumentMoniker": "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Data\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
-              "ToolTip": "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangCao\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Data\\ApplicationDbContext.cs",
               "RelativeToolTip": "Data\\ApplicationDbContext.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAAgwB8AAAAAAAAA",
+              "ViewState": "AQIAADIAAAAAAAAAAAAiwDsAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-21T04:37:40.645Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "TinNhan.cs",
-              "DocumentMoniker": "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangCao\\Models\\TinNhan.cs",
+              "DocumentMoniker": "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Models\\TinNhan.cs",
               "RelativeDocumentMoniker": "Models\\TinNhan.cs",
-              "ToolTip": "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangCao\\Models\\TinNhan.cs",
+              "ToolTip": "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Models\\TinNhan.cs",
               "RelativeToolTip": "Models\\TinNhan.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAwAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAqwBAAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-21T04:36:22.305Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ThanhVienPhong.cs",
-              "DocumentMoniker": "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangCao\\Models\\ThanhVienPhong.cs",
+              "DocumentMoniker": "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Models\\ThanhVienPhong.cs",
               "RelativeDocumentMoniker": "Models\\ThanhVienPhong.cs",
-              "ToolTip": "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangCao\\Models\\ThanhVienPhong.cs",
+              "ToolTip": "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Models\\ThanhVienPhong.cs",
               "RelativeToolTip": "Models\\ThanhVienPhong.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-21T04:35:52.015Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "PhongChat.cs",
-              "DocumentMoniker": "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangCao\\Models\\PhongChat.cs",
+              "DocumentMoniker": "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Models\\PhongChat.cs",
               "RelativeDocumentMoniker": "Models\\PhongChat.cs",
-              "ToolTip": "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangCao\\Models\\PhongChat.cs",
+              "ToolTip": "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Models\\PhongChat.cs",
               "RelativeToolTip": "Models\\PhongChat.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAA7wA0AAAAbAAAA",
+              "ViewState": "AQIAABcAAAAAAAAAAAA9wCAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-21T04:35:18.88Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "NguoiDung.cs",
-              "DocumentMoniker": "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangCao\\Models\\NguoiDung.cs",
+              "DocumentMoniker": "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Models\\NguoiDung.cs",
               "RelativeDocumentMoniker": "Models\\NguoiDung.cs",
-              "ToolTip": "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangCao\\Models\\NguoiDung.cs",
+              "ToolTip": "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Models\\NguoiDung.cs",
               "RelativeToolTip": "Models\\NguoiDung.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAgwBUAAAAAAAAA",
+              "ViewState": "AQIAABAAAAAAAAAAAAAAwB4AAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-21T04:33:59.87Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangCao\\Program.cs",
+              "DocumentMoniker": "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangCao\\Program.cs",
+              "ToolTip": "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAlAAAA",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAAC8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-21T04:18:47.252Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangCao\\appsettings.json",
+              "DocumentMoniker": "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangcao\\BtlWebNangCao\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangCao\\appsettings.json",
+              "ToolTip": "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangcao\\BtlWebNangCao\\appsettings.json",
               "RelativeToolTip": "appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-03-21T04:18:44.822Z",
               "EditorCaption": ""
@@ -170,7 +170,7 @@
           ]
         },
         {
-          "DockedHeight": 66,
+          "DockedHeight": 33,
           "SelectedChildIndex": -1,
           "Children": [
             {
@@ -184,7 +184,7 @@
           ]
         },
         {
-          "DockedHeight": 9,
+          "DockedHeight": 3,
           "SelectedChildIndex": -1,
           "Children": [
             {

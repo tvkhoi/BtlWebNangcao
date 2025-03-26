@@ -9,39 +9,39 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BtlWebNangCao
 build_property.RootNamespace = BtlWebNangCao
-build_property.ProjectDir = D:\Learn_advanced_web_programming\BTL\BtlWebNangCao\
+build_property.ProjectDir = D:\Learn_advanced_web_programming\BTL\BtlWebNangcao\BtlWebNangCao\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Learn_advanced_web_programming\BTL\BtlWebNangCao
+build_property.MSBuildProjectDirectory = D:\Learn_advanced_web_programming\BTL\BtlWebNangcao\BtlWebNangCao
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Learn_advanced_web_programming/BTL/BtlWebNangCao/Views/Home/Index.cshtml]
+[D:/Learn_advanced_web_programming/BTL/BtlWebNangcao/BtlWebNangCao/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Learn_advanced_web_programming/BTL/BtlWebNangCao/Views/Home/Privacy.cshtml]
+[D:/Learn_advanced_web_programming/BTL/BtlWebNangcao/BtlWebNangCao/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Learn_advanced_web_programming/BTL/BtlWebNangCao/Views/Shared/Error.cshtml]
+[D:/Learn_advanced_web_programming/BTL/BtlWebNangcao/BtlWebNangCao/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Learn_advanced_web_programming/BTL/BtlWebNangCao/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Learn_advanced_web_programming/BTL/BtlWebNangcao/BtlWebNangCao/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Learn_advanced_web_programming/BTL/BtlWebNangCao/Views/_ViewImports.cshtml]
+[D:/Learn_advanced_web_programming/BTL/BtlWebNangcao/BtlWebNangCao/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Learn_advanced_web_programming/BTL/BtlWebNangCao/Views/_ViewStart.cshtml]
+[D:/Learn_advanced_web_programming/BTL/BtlWebNangcao/BtlWebNangCao/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Learn_advanced_web_programming/BTL/BtlWebNangCao/Views/Shared/_Layout.cshtml]
+[D:/Learn_advanced_web_programming/BTL/BtlWebNangcao/BtlWebNangCao/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-ingovu2ugs

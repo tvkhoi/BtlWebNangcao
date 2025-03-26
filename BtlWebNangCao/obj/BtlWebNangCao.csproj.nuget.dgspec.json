@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangCao\\BtlWebNangCao.csproj": {}
+    "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangcao\\BtlWebNangCao\\BtlWebNangCao.csproj": {}
   },
   "projects": {
-    "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangCao\\BtlWebNangCao.csproj": {
+    "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangcao\\BtlWebNangCao\\BtlWebNangCao.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangCao\\BtlWebNangCao.csproj",
+        "projectUniqueName": "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangcao\\BtlWebNangCao\\BtlWebNangCao.csproj",
         "projectName": "BtlWebNangCao",
-        "projectPath": "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangCao\\BtlWebNangCao.csproj",
+        "projectPath": "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangcao\\BtlWebNangCao\\BtlWebNangCao.csproj",
         "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangCao\\obj\\",
+        "outputPath": "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangcao\\BtlWebNangCao\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -50,9 +50,17 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.12, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[6.0.12, )"
+            },
             "Microsoft.Data.SqlClient": {
               "target": "Package",
-              "version": "[6.0.1, )"
+              "version": "[5.0.0, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
