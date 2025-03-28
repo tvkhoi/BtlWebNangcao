@@ -3,8 +3,8 @@ namespace BtlWebNangCao.Models
 {
     public class NguoiDung
     {
-        [Key]
-        public int MaNguoiDung { get; set; }
+        [Key,StringLength(450)]
+        public string MaNguoiDung { get; set; }
 
         [Required, StringLength(50)]
         public string TenDangNhap { get; set; }

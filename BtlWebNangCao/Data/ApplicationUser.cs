@@ -4,6 +4,6 @@ namespace BtlWebNangCao.Data
 {
     public class ApplicationUser : IdentityUser
     {
-
+       
     }
 }

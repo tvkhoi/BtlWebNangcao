@@ -14,7 +14,7 @@ namespace BtlWebNangCao.Models
         public PhongChat PhongChat { get; set; }
 
         [Required]
-        public int MaNguoiGui { get; set; }
+        public string MaNguoiGui { get; set; }
         [ForeignKey("MaNguoiGui")]
         public NguoiDung NguoiGui { get; set; }
 

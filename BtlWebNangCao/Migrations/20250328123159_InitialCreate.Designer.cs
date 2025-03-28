@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BtlWebNangCao.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250326220840_IdentitySetup")]
-    partial class IdentitySetup
+    [Migration("20250328123159_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -91,11 +91,9 @@ namespace BtlWebNangCao.Migrations
 
             modelBuilder.Entity("BtlWebNangCao.Models.NguoiDung", b =>
                 {
-                    b.Property<int>("MaNguoiDung")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaNguoiDung"), 1L, 1);
+                    b.Property<string>("MaNguoiDung")
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -142,8 +140,9 @@ namespace BtlWebNangCao.Migrations
                     b.Property<bool>("LaCongKhai")
                         .HasColumnType("bit");
 
-                    b.Property<int>("MaNguoiTao")
-                        .HasColumnType("int");
+                    b.Property<string>("MaNguoiTao")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("MoTa")
                         .IsRequired()
@@ -167,8 +166,8 @@ namespace BtlWebNangCao.Migrations
 
             modelBuilder.Entity("BtlWebNangCao.Models.ThanhVienPhong", b =>
                 {
-                    b.Property<int>("MaNguoiDung")
-                        .HasColumnType("int")
+                    b.Property<string>("MaNguoiDung")
+                        .HasColumnType("nvarchar(450)")
                         .HasColumnOrder(0);
 
                     b.Property<int>("MaPhong")
@@ -198,8 +197,9 @@ namespace BtlWebNangCao.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaTinNhan"), 1L, 1);
 
-                    b.Property<int>("MaNguoiGui")
-                        .HasColumnType("int");
+                    b.Property<string>("MaNguoiGui")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("MaPhong")
                         .HasColumnType("int");

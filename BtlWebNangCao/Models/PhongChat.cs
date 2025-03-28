@@ -19,7 +19,7 @@ namespace BtlWebNangCao.Models
         public DateTime NgayTao { get; set; } = DateTime.Now;
 
         // Khóa ngoại: Người tạo phòng
-        public int MaNguoiTao { get; set; }
+        public string MaNguoiTao { get; set; }
         [ForeignKey("MaNguoiTao")]
         public NguoiDung NguoiTao { get; set; }
 

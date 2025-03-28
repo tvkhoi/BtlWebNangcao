@@ -56,14 +56,19 @@ namespace BtlWebNangCao.Areas.Identity.Pages.Account
             var user = await _userManager.FindByEmailAsync(email);
             if (user == null)
             {
-                return NotFound($"Unable to load user with email '{email}'.");
+                return NotFound($"Không th? t?i ng??i dùng b?ng email '{email}'.");
             }
 
             Email = email;
             // Once you add a real email sender, you should remove this code that lets you confirm the account
-            DisplayConfirmAccountLink = true;
-            if (DisplayConfirmAccountLink)
+            if (_sender != null)
             {
+                DisplayConfirmAccountLink = false; // Không hi?n th? liên k?t xác nh?n tài kho?n
+            }
+            else
+            {
+                // N?u ch?a có d?ch v? email, hi?n th? liên k?t xác nh?n tài kho?n
+                DisplayConfirmAccountLink = true;
                 var userId = await _userManager.GetUserIdAsync(user);
                 var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                 code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));

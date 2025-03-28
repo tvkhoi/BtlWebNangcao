@@ -1,4 +1,4 @@
-// Licensed to the .NET Foundation under one or more agreements.
+﻿// Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 #nullable disable
 
@@ -19,6 +19,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using BtlWebNangCao.Models;
+using System.Diagnostics.CodeAnalysis;
 
 namespace BtlWebNangCao.Areas.Identity.Pages.Account
 {
@@ -30,13 +32,16 @@ namespace BtlWebNangCao.Areas.Identity.Pages.Account
         private readonly IUserEmailStore<ApplicationUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        // Khai báo sử dụng Lớp AppLicationDbcontent
+        private readonly ApplicationDbContext _context;
 
         public RegisterModel(
             UserManager<ApplicationUser> userManager,
             IUserStore<ApplicationUser> userStore,
             SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            ApplicationDbContext context)
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -44,6 +49,7 @@ namespace BtlWebNangCao.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _context = context;  // Thêm DbContext vào đây
         }
 
         /// <summary>
@@ -75,8 +81,14 @@ namespace BtlWebNangCao.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
-            [EmailAddress]
+            [Required(ErrorMessage = "Tên đăng nhập là bắt buộc.")]
+            [StringLength(50, ErrorMessage ="phải nhỏ hơn 50 kí tự")]
+            [Display(Name = "Tên đăng nhập")]
+            
+            public string TenDangNhap { get; set; }
+
+            [Required(ErrorMessage = "Email là bắt buộc.")]
+            [EmailAddress(ErrorMessage = "Email không hợp lệ.")]
             [Display(Name = "Email")]
             public string Email { get; set; }
 
@@ -84,10 +96,10 @@ namespace BtlWebNangCao.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [Required(ErrorMessage = "Mật khẩu là bắt buộc.")]
+            [StringLength(100, ErrorMessage = "{0} phải có ít nhất {2} ký tự và tối đa {1} ký tự.", MinimumLength = 6)]
             [DataType(DataType.Password)]
-            [Display(Name = "Password")]
+            [Display(Name = "Mật khẩu")]
             public string Password { get; set; }
 
             /// <summary>
@@ -95,8 +107,8 @@ namespace BtlWebNangCao.Areas.Identity.Pages.Account
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Display(Name = "Xác nhận mật khẩu")]
+            [Compare("Password", ErrorMessage = "Mật khẩu và xác nhận mật khẩu không khớp.")]
             public string ConfirmPassword { get; set; }
         }
 
@@ -114,14 +126,31 @@ namespace BtlWebNangCao.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
-
-                await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
+             
+                await _userStore.SetUserNameAsync(user, Input.TenDangNhap, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User created a new account with password.");
+                    _logger.LogInformation("Người dùng đã tạo một tài khoản mới với mật khẩu.");
+                    // Mã hóa mật khẩu trước khi lưu vào bảng NguoiDung
+                    var passwordHasher = new PasswordHasher<ApplicationUser>();
+                    var hashedPassword = passwordHasher.HashPassword(user, Input.Password);
+
+
+                    // Thêm dữ liệu vào bảng NguoiDung
+                    var nguoiDung = new NguoiDung
+                    {
+                        MaNguoiDung = user.Id,
+                        TenDangNhap = Input.TenDangNhap,
+                        MatKhau = hashedPassword, //  Mã hóa mật khẩu trước khi lưu vào CSDL
+                        Email = Input.Email,
+                        VaiTro = "User",  // Gán vai trò mặc định là 'User'
+                        NgayTao = DateTime.Now
+                    };
+                    _context.NguoiDungs.Add(nguoiDung);  // Thêm vào CSDL
+                    await _context.SaveChangesAsync();  // Lưu lại thay đổi
 
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
@@ -132,8 +161,8 @@ namespace BtlWebNangCao.Areas.Identity.Pages.Account
                         values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
                         protocol: Request.Scheme);
 
-                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    await _emailSender.SendEmailAsync(Input.Email, "Xác nhận email của bạn",
+                        $"Vui lòng xác nhận tài khoản của bạn bằng cách <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>nhấp vào đây</a>.");
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
@@ -173,7 +202,7 @@ namespace BtlWebNangCao.Areas.Identity.Pages.Account
         {
             if (!_userManager.SupportsUserEmail)
             {
-                throw new NotSupportedException("The default UI requires a user store with email support.");
+                throw new NotSupportedException("Giao diện người dùng mặc định yêu cầu một cửa hàng người dùng có hỗ trợ email.");
             }
             return (IUserEmailStore<ApplicationUser>)_userStore;
         }
