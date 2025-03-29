@@ -1,4 +1,4 @@
-// Licensed to the .NET Foundation under one or more agreements.
+﻿// Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 #nullable disable
 
@@ -68,7 +68,9 @@ namespace BtlWebNangCao.Areas.Identity.Pages.Account
             /// 
             
             [Required]
-            public string UserName { get; set; }
+            [Display(Name = "Nhập username hoặc email của bạn")]
+            [StringLength(100, MinimumLength = 1, ErrorMessage = "Nhập đúng thông tin")]
+            public string UserNameorEmail { get; set; }
 
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
@@ -82,7 +84,7 @@ namespace BtlWebNangCao.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Display(Name = "Remember me?")]
+            [Display(Name = "Nhớ tài khoản?")]
             public bool RememberMe { get; set; }
         }
 
@@ -111,9 +113,13 @@ namespace BtlWebNangCao.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
-                // This doesn't count login failures towards account lockout
-                // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-                var result = await _signInManager.PasswordSignInAsync(Input.UserName, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+                // Kiểm tra nếu input là email thì lấy username tương ứng
+                var user = await _signInManager.UserManager.FindByEmailAsync(Input.UserNameorEmail);
+                string username = user?.UserName ?? Input.UserNameorEmail; // Nếu không tìm thấy email thì dùng username
+
+                // Thực hiện đăng nhập bằng username
+                var result = await _signInManager.PasswordSignInAsync(username, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
@@ -130,13 +136,14 @@ namespace BtlWebNangCao.Areas.Identity.Pages.Account
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "Thông tin đăng nhập không hợp lệ.");
                     return Page();
                 }
             }
 
-            // If we got this far, something failed, redisplay form
+            // Nếu có lỗi, hiển thị lại form đăng nhập
             return Page();
         }
+
     }
 }

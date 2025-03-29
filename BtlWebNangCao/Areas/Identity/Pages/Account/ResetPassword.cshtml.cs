@@ -1,4 +1,4 @@
-// Licensed to the .NET Foundation under one or more agreements.
+﻿// Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 #nullable disable
 
@@ -12,16 +12,19 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.EntityFrameworkCore;
 
 namespace BtlWebNangCao.Areas.Identity.Pages.Account
 {
     public class ResetPasswordModel : PageModel
     {
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly ApplicationDbContext _context;
 
-        public ResetPasswordModel(UserManager<ApplicationUser> userManager)
+        public ResetPasswordModel(UserManager<ApplicationUser> userManager, ApplicationDbContext context)
         {
             _userManager = userManager;
+            _context = context;
         }
 
         /// <summary>
@@ -105,6 +108,17 @@ namespace BtlWebNangCao.Areas.Identity.Pages.Account
             var result = await _userManager.ResetPasswordAsync(user, Input.Code, Input.Password);
             if (result.Succeeded)
             {
+                // Lấy chuỗi mật khẩu đã băm từ bảng AspNetUsers
+                var hashedPassword = user.PasswordHash;
+                // Cập nhật bảng NguoiDungs
+                var nguoiDung = await _context.NguoiDungs.FirstOrDefaultAsync(nd => nd.Email == Input.Email);
+                if (nguoiDung != null)
+                {
+                     nguoiDung.MatKhau = hashedPassword; // Ghi lại chuỗi mật khẩu đã băm // Mã hóa mật khẩu mới
+                    _context.NguoiDungs.Update(nguoiDung);
+                    await _context.SaveChangesAsync();
+                }
+
                 return RedirectToPage("./ResetPasswordConfirmation");
             }
 
