@@ -15,6 +15,8 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using BtlWebNangCao.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BtlWebNangCao.Areas.Identity.Pages.Account
 {
@@ -22,11 +24,13 @@ namespace BtlWebNangCao.Areas.Identity.Pages.Account
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
+        private readonly ApplicationDbContext _context;
 
-        public LoginModel(SignInManager<ApplicationUser> signInManager, ILogger<LoginModel> logger)
+        public LoginModel(SignInManager<ApplicationUser> signInManager, ILogger<LoginModel> logger, ApplicationDbContext context)
         {
             _signInManager = signInManager;
             _logger = logger;
+            _context = context;
         }
 
         /// <summary>
@@ -113,11 +117,39 @@ namespace BtlWebNangCao.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
-                // Kiểm tra nếu input là email thì lấy username tương ứng
-                var user = await _signInManager.UserManager.FindByEmailAsync(Input.UserNameorEmail);
-                string username = user?.UserName ?? Input.UserNameorEmail; // Nếu không tìm thấy email thì dùng username
+                // Kiểm tra nếu nhập admin
+                if (Input.UserNameorEmail.Equals("admin", StringComparison.OrdinalIgnoreCase) ||
+                    Input.UserNameorEmail.Equals("admin@example.com", StringComparison.OrdinalIgnoreCase))
+                {
+                    var adminUser = await _context.NguoiDungs
+                        .FirstOrDefaultAsync(u => u.TenDangNhap == "admin" || u.Email == "admin@example.com");
 
-                // Thực hiện đăng nhập bằng username
+                    if (adminUser != null)
+                    {
+                        var passwordHasher = new PasswordHasher<NguoiDung>();
+                        var verifyResult = passwordHasher.VerifyHashedPassword(adminUser, adminUser.MatKhau, Input.Password);
+
+                        if (verifyResult == PasswordVerificationResult.Success)
+                        {
+                            _logger.LogInformation("Admin đăng nhập thành công.");
+
+                            // Lưu session
+                            HttpContext.Session.SetString("UserRole", "Admin");
+                            HttpContext.Session.SetString("UserEmail", adminUser.Email);
+
+                            return RedirectToAction("Index", "Admin"); // Điều hướng đến trang Admin
+                        }
+                    }
+
+                    ModelState.AddModelError(string.Empty, "Thông tin đăng nhập không hợp lệ.");
+                    return Page();
+                }
+
+
+                // Nếu không phải admin, đăng nhập bằng Identity
+                var user = await _signInManager.UserManager.FindByEmailAsync(Input.UserNameorEmail);
+                string username = user?.UserName ?? Input.UserNameorEmail;
+
                 var result = await _signInManager.PasswordSignInAsync(username, Input.Password, Input.RememberMe, lockoutOnFailure: false);
 
                 if (result.Succeeded)
@@ -144,6 +176,7 @@ namespace BtlWebNangCao.Areas.Identity.Pages.Account
             // Nếu có lỗi, hiển thị lại form đăng nhập
             return Page();
         }
+
 
     }
 }

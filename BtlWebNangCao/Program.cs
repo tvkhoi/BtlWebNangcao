@@ -37,6 +37,9 @@ builder.Services.Configure<SmtpSettings>(builder.Configuration.GetSection("SmtpS
 // Đăng ký dịch vụ SmtpEmailSender để sử dụng cho IEmailSender
 builder.Services.AddTransient<IEmailSender, SmtpEmailSender>();
 
+// Thêm dịch vụ nguoidung
+builder.Services.AddScoped<NguoiDungService>();
+
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.Cookie.HttpOnly = true;
@@ -56,7 +59,15 @@ builder.Services.AddSession(options =>
 });
 
 
+
 var app = builder.Build();
+
+// Gọi SeedData khi ứng dụng khởi động
+using (var scope = app.Services.CreateScope())
+{
+    var serviceProvider = scope.ServiceProvider;
+    await SeedData.Initialize(serviceProvider);
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -80,26 +91,50 @@ app.UseAuthorization();
 // Middleware kiểm tra trạng thái đăng nhập và lần đầu truy cập
 app.Use(async (context, next) =>
 {
-    // Kiểm tra xem người dùng đã đăng nhập chưa
+    // Kiểm tra nếu đã đăng nhập
     if (context.User.Identity.IsAuthenticated)
     {
-        // Nếu đã đăng nhập, cho phép tiếp tục truy cập
-        await next();
+        // Lấy thông tin vai trò từ session
+        string userRole = context.Session.GetString("UserRole");
+
+        if (string.IsNullOrEmpty(userRole))
+        {
+            // Nếu session chưa có role, kiểm tra trong cơ sở dữ liệu
+            using (var scope = context.RequestServices.CreateScope())
+            {
+                var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+                var userEmail = context.User.Identity.Name;
+                var user = await dbContext.NguoiDungs.FirstOrDefaultAsync(u => u.Email == userEmail);
+
+                if (user != null)
+                {
+                    userRole = user.VaiTro;
+                    context.Session.SetString("UserRole", userRole); // Lưu vào session
+                }
+            }
+        }
+
+        // Kiểm tra quyền truy cập trang Admin
+        if (context.Request.Path.StartsWithSegments("/Admin") && userRole != "Admin")
+        {
+            context.Response.Redirect("/Identity/Account/AccessDenied"); // Chuyển hướng nếu không có quyền
+            return;
+        }
+
+        await next(); // Tiếp tục xử lý request
     }
     else if (context.Session.GetString("IsFirstVisit") == null)
     {
-        // Nếu là lần đầu truy cập
+        // Nếu là lần đầu truy cập, lưu trạng thái và điều hướng đến trang đăng nhập
         context.Session.SetString("IsFirstVisit", "false");
-
-        // Điều hướng đến trang đăng ký
         context.Response.Redirect("/Identity/Account/Login");
     }
     else
     {
-        // Cho phép tiếp tục truy cập nếu không phải lần đầu truy cập và chưa đăng nhập
-        await next();
+        await next(); // Tiếp tục nếu không phải lần đầu truy cập
     }
 });
+
 
 
 app.MapRazorPages(); // Đăng ký Razor Pages để sử dụng Identity UI

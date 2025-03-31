@@ -34,7 +34,7 @@ namespace BtlWebNangCao.Areas.Identity.Pages.Account
         private readonly IEmailSender _emailSender;
         // Khai báo sử dụng Lớp AppLicationDbcontent
         private readonly ApplicationDbContext _context;
-
+        
         public RegisterModel(
             UserManager<ApplicationUser> userManager,
             IUserStore<ApplicationUser> userStore,
@@ -135,7 +135,7 @@ namespace BtlWebNangCao.Areas.Identity.Pages.Account
                 {
                     _logger.LogInformation("Người dùng đã tạo một tài khoản mới với mật khẩu.");
                     // Mã hóa mật khẩu trước khi lưu vào bảng NguoiDung
-                    var passwordHasher = new PasswordHasher<ApplicationUser>();
+                var passwordHasher = new PasswordHasher<ApplicationUser>();
                     var hashedPassword = passwordHasher.HashPassword(user, Input.Password);
 
 
@@ -153,21 +153,21 @@ namespace BtlWebNangCao.Areas.Identity.Pages.Account
                     await _context.SaveChangesAsync();  // Lưu lại thay đổi
 
                     var userId = await _userManager.GetUserIdAsync(user);
-                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-                    var callbackUrl = Url.Page(
-                        "/Account/ConfirmEmail",
-                        pageHandler: null,
+                var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+                var callbackUrl = Url.Page(
+                    "/Account/ConfirmEmail",
+                    pageHandler: null,
                         values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
-                        protocol: Request.Scheme);
+                    protocol: Request.Scheme);
 
-                    await _emailSender.SendEmailAsync(Input.Email, "Xác nhận email của bạn",
-                        $"Vui lòng xác nhận tài khoản của bạn bằng cách <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>nhấp vào đây</a>.");
+                await _emailSender.SendEmailAsync(Input.Email, "Xác nhận email của bạn",
+                    $"Vui lòng xác nhận tài khoản của bạn bằng cách <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>nhấp vào đây</a>.");
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
-                        return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
-                    }
+                return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
+            }
                     else
                     {
                         await _signInManager.SignInAsync(user, isPersistent: false);

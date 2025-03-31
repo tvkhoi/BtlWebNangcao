@@ -1,4 +1,4 @@
-// Licensed to the .NET Foundation under one or more agreements.
+Ôªø// Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 #nullable disable
 
@@ -12,6 +12,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
+using BtlWebNangCao.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BtlWebNangCao.Areas.Identity.Pages.Account
 {
@@ -45,8 +47,9 @@ namespace BtlWebNangCao.Areas.Identity.Pages.Account
 
             code = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(code));
             var result = await _userManager.ConfirmEmailAsync(user, code);
-            StatusMessage = result.Succeeded ? "C?m ?n b?n ?„ x·c nh?n email c?a b?n." : "L?i khi x·c nh?n email c?a b?n.";
+            StatusMessage = result.Succeeded ? "C?m ?n b?n ?√£ x√°c nh?n email c?a b?n." : "L?i khi x√°c nh?n email c?a b?n.";
             return Page();
         }
+
     }
 }
