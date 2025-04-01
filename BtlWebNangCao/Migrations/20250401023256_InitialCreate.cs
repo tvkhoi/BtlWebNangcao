@@ -28,6 +28,8 @@ namespace BtlWebNangCao.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    NgayTao = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    NgaySua = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -46,22 +48,6 @@ namespace BtlWebNangCao.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "NguoiDungs",
-                columns: table => new
-                {
-                    MaNguoiDung = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
-                    TenDangNhap = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    MatKhau = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    VaiTro = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    NgayTao = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_NguoiDungs", x => x.MaNguoiDung);
                 });
 
             migrationBuilder.CreateTable(
@@ -186,10 +172,10 @@ namespace BtlWebNangCao.Migrations
                 {
                     table.PrimaryKey("PK_PhongChats", x => x.MaPhong);
                     table.ForeignKey(
-                        name: "FK_PhongChats_NguoiDungs_MaNguoiTao",
+                        name: "FK_PhongChats_AspNetUsers_MaNguoiTao",
                         column: x => x.MaNguoiTao,
-                        principalTable: "NguoiDungs",
-                        principalColumn: "MaNguoiDung",
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -206,10 +192,10 @@ namespace BtlWebNangCao.Migrations
                 {
                     table.PrimaryKey("PK_ThanhVienPhongs", x => new { x.MaNguoiDung, x.MaPhong });
                     table.ForeignKey(
-                        name: "FK_ThanhVienPhongs_NguoiDungs_MaNguoiDung",
+                        name: "FK_ThanhVienPhongs_AspNetUsers_MaNguoiDung",
                         column: x => x.MaNguoiDung,
-                        principalTable: "NguoiDungs",
-                        principalColumn: "MaNguoiDung");
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_ThanhVienPhongs_PhongChats_MaPhong",
                         column: x => x.MaPhong,
@@ -232,10 +218,10 @@ namespace BtlWebNangCao.Migrations
                 {
                     table.PrimaryKey("PK_TinNhans", x => x.MaTinNhan);
                     table.ForeignKey(
-                        name: "FK_TinNhans_NguoiDungs_MaNguoiGui",
+                        name: "FK_TinNhans_AspNetUsers_MaNguoiGui",
                         column: x => x.MaNguoiGui,
-                        principalTable: "NguoiDungs",
-                        principalColumn: "MaNguoiDung",
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_TinNhans_PhongChats_MaPhong",
@@ -282,18 +268,6 @@ namespace BtlWebNangCao.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_NguoiDungs_Email",
-                table: "NguoiDungs",
-                column: "Email",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_NguoiDungs_TenDangNhap",
-                table: "NguoiDungs",
-                column: "TenDangNhap",
-                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_PhongChats_MaNguoiTao",
@@ -343,13 +317,10 @@ namespace BtlWebNangCao.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
                 name: "PhongChats");
 
             migrationBuilder.DropTable(
-                name: "NguoiDungs");
+                name: "AspNetUsers");
         }
     }
 }

@@ -21,7 +21,7 @@ namespace BtlWebNangCao.Models
         // Khóa ngoại: Người tạo phòng
         public string MaNguoiTao { get; set; }
         [ForeignKey("MaNguoiTao")]
-        public NguoiDung NguoiTao { get; set; }
+        public ApplicationUser NguoiTao { get; set; }
 
         // Quan hệ N-N: Phòng có nhiều thành viên
         public ICollection<ThanhVienPhong> DanhSachThanhVien { get; set; }

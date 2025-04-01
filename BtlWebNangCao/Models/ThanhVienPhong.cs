@@ -9,7 +9,7 @@ namespace BtlWebNangCao.Models
         public string MaNguoiDung { get; set; }
 
         [ForeignKey("MaNguoiDung")]
-        public NguoiDung NguoiDung { get; set; }
+        public ApplicationUser NguoiDung { get; set; }
 
         [Key, Column(Order = 1)]
         public int MaPhong { get; set; }

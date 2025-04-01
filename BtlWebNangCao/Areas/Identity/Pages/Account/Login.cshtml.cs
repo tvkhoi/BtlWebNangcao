@@ -24,13 +24,12 @@ namespace BtlWebNangCao.Areas.Identity.Pages.Account
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
-        private readonly ApplicationDbContext _context;
-
-        public LoginModel(SignInManager<ApplicationUser> signInManager, ILogger<LoginModel> logger, ApplicationDbContext context)
+        private readonly UserManager<ApplicationUser> _userManager;
+        public LoginModel(SignInManager<ApplicationUser> signInManager, ILogger<LoginModel> logger, UserManager<ApplicationUser> userManager)
         {
             _signInManager = signInManager;
             _logger = logger;
-            _context = context;
+            _userManager = userManager;
         }
 
         /// <summary>
@@ -117,63 +116,39 @@ namespace BtlWebNangCao.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
-                // Kiểm tra nếu nhập admin
-                if (Input.UserNameorEmail.Equals("admin", StringComparison.OrdinalIgnoreCase) ||
-                    Input.UserNameorEmail.Equals("admin@example.com", StringComparison.OrdinalIgnoreCase))
+                var user = await _userManager.FindByEmailAsync(Input.UserNameorEmail);
+                if (user != null)
                 {
-                    var adminUser = await _context.NguoiDungs
-                        .FirstOrDefaultAsync(u => u.TenDangNhap == "admin" || u.Email == "admin@example.com");
+                    var result = await _signInManager.PasswordSignInAsync(user, Input.Password, Input.RememberMe, lockoutOnFailure: false);
 
-                    if (adminUser != null)
+                    if (result.Succeeded)
                     {
-                        var passwordHasher = new PasswordHasher<NguoiDung>();
-                        var verifyResult = passwordHasher.VerifyHashedPassword(adminUser, adminUser.MatKhau, Input.Password);
+                        // Lấy vai trò của người dùng
+                        var roles = await _userManager.GetRolesAsync(user);
+                        HttpContext.Session.SetString("User Role", roles.FirstOrDefault() ?? "User ");
 
-                        if (verifyResult == PasswordVerificationResult.Success)
-                        {
-                            _logger.LogInformation("Admin đăng nhập thành công.");
-
-                            // Lưu session
-                            HttpContext.Session.SetString("UserRole", "Admin");
-                            HttpContext.Session.SetString("UserEmail", adminUser.Email);
-
-                            return RedirectToAction("Index", "Admin"); // Điều hướng đến trang Admin
-                        }
+                        _logger.LogInformation("User  logged in.");
+                        return LocalRedirect(returnUrl);
                     }
-
-                    ModelState.AddModelError(string.Empty, "Thông tin đăng nhập không hợp lệ.");
-                    return Page();
+                    if (result.RequiresTwoFactor)
+                    {
+                        return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
+                    }
+                    if (result.IsLockedOut)
+                    {
+                        _logger.LogWarning("User  account locked out.");
+                        return RedirectToPage("./Lockout");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError(string.Empty, "Thông tin đăng nhập không hợp lệ.");
+                        return Page();
+                    }
                 }
-
-
-                // Nếu không phải admin, đăng nhập bằng Identity
-                var user = await _signInManager.UserManager.FindByEmailAsync(Input.UserNameorEmail);
-                string username = user?.UserName ?? Input.UserNameorEmail;
-
-                var result = await _signInManager.PasswordSignInAsync(username, Input.Password, Input.RememberMe, lockoutOnFailure: false);
-
-                if (result.Succeeded)
-                {
-                    _logger.LogInformation("User logged in.");
-                    return LocalRedirect(returnUrl);
-                }
-                if (result.RequiresTwoFactor)
-                {
-                    return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
-                }
-                if (result.IsLockedOut)
-                {
-                    _logger.LogWarning("User account locked out.");
-                    return RedirectToPage("./Lockout");
-                }
-                else
-                {
-                    ModelState.AddModelError(string.Empty, "Thông tin đăng nhập không hợp lệ.");
-                    return Page();
-                }
+                ModelState.AddModelError(string.Empty, "Thông tin đăng nhập không hợp lệ.");
+                return Page();
             }
 
-            // Nếu có lỗi, hiển thị lại form đăng nhập
             return Page();
         }
 

@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.EntityFrameworkCore;
+using BtlWebNangCao.Models;
 
 namespace BtlWebNangCao.Areas.Identity.Pages.Account
 {
@@ -108,17 +109,6 @@ namespace BtlWebNangCao.Areas.Identity.Pages.Account
             var result = await _userManager.ResetPasswordAsync(user, Input.Code, Input.Password);
             if (result.Succeeded)
             {
-                // Lấy chuỗi mật khẩu đã băm từ bảng AspNetUsers
-                var hashedPassword = user.PasswordHash;
-                // Cập nhật bảng NguoiDungs
-                var nguoiDung = await _context.NguoiDungs.FirstOrDefaultAsync(nd => nd.Email == Input.Email);
-                if (nguoiDung != null)
-                {
-                     nguoiDung.MatKhau = hashedPassword; // Ghi lại chuỗi mật khẩu đã băm // Mã hóa mật khẩu mới
-                    _context.NguoiDungs.Update(nguoiDung);
-                    await _context.SaveChangesAsync();
-                }
-
                 return RedirectToPage("./ResetPasswordConfirmation");
             }
 

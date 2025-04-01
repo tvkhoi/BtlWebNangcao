@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Q2c6RBnBzhr/HS4JfEwjFTJk2EZrjO6lmQMY6IPlIuThCXug1fNb9ZB4D28XOZcJ3KmDf/OBLLVWVjrL66kjJw==",
+  "dgSpecHash": "pEJ4RgmGdeUP8saDK8DpP1PnCDApGRrQSahtsaTisOzWmz6FvIk29I79FEZimIPpMvA0Afx0cjEI9hz941Eqag==",
   "success": true,
-  "projectFilePath": "D:\\Learn_advanced_web_programming\\BTL\\BtlWebNangcao\\BtlWebNangCao\\BtlWebNangCao.csproj",
+  "projectFilePath": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\BtlWebNangCao.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Acer\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

@@ -28,17 +28,19 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
     options.Password.RequiredLength = 6;            // Độ dài tối thiểu là 6
     //options.Lockout.MaxFailedAccessAttempts = 5;    // Khóa tài khoản sau 5 lần nhập sai
     //options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10); // Khóa trong 10 phút
-}).AddEntityFrameworkStores<ApplicationDbContext>();
+}).AddRoles<IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
 
 //builder.Configuration.AddUserSecrets<Program>(); // Đọc từ User Secrets
 
 // Đọc cấu hình SmtpSettings từ appsettings.json
 builder.Services.Configure<SmtpSettings>(builder.Configuration.GetSection("SmtpSettings"));
+
+builder.Services.AddScoped<RoleInitializer>();
 // Đăng ký dịch vụ SmtpEmailSender để sử dụng cho IEmailSender
 builder.Services.AddTransient<IEmailSender, SmtpEmailSender>();
 
 // Thêm dịch vụ nguoidung
-builder.Services.AddScoped<NguoiDungService>();
+//builder.Services.AddScoped<NguoiDungService>();
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
@@ -67,6 +69,10 @@ using (var scope = app.Services.CreateScope())
 {
     var serviceProvider = scope.ServiceProvider;
     await SeedData.Initialize(serviceProvider);
+
+    // Thêm dữ liệu vào AspNetRole trong trường hợp không tồn tại
+    var roleInitializer = serviceProvider.GetRequiredService<RoleInitializer>();
+    await roleInitializer.InitializeAsync();
 }
 
 // Configure the HTTP request pipeline.
@@ -95,21 +101,23 @@ app.Use(async (context, next) =>
     if (context.User.Identity.IsAuthenticated)
     {
         // Lấy thông tin vai trò từ session
-        string userRole = context.Session.GetString("UserRole");
+        string userRole = context.Session.GetString("User Role");
 
         if (string.IsNullOrEmpty(userRole))
         {
             // Nếu session chưa có role, kiểm tra trong cơ sở dữ liệu
             using (var scope = context.RequestServices.CreateScope())
             {
-                var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+                var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
                 var userEmail = context.User.Identity.Name;
-                var user = await dbContext.NguoiDungs.FirstOrDefaultAsync(u => u.Email == userEmail);
+                var user = await userManager.FindByEmailAsync(userEmail);
 
                 if (user != null)
                 {
-                    userRole = user.VaiTro;
-                    context.Session.SetString("UserRole", userRole); // Lưu vào session
+                    // Lấy vai trò của người dùng
+                    var roles = await userManager.GetRolesAsync(user);
+                    userRole = roles.FirstOrDefault(); // Lấy vai trò đầu tiên (nếu có)
+                    context.Session.SetString("User Role", userRole); // Lưu vào session
                 }
             }
         }

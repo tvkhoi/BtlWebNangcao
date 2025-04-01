@@ -1,40 +1,46 @@
 ﻿using BtlWebNangCao.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+
 namespace BtlWebNangCao.Data
 {
     public static class SeedData
     {
         public static async Task Initialize(IServiceProvider serviceProvider)
         {
-            using (var context = serviceProvider.GetRequiredService<ApplicationDbContext>())
+            var userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+            var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+            // Kiểm tra nếu đã có vai trò Admin thì không cần tạo mới
+            if (!await roleManager.RoleExistsAsync("Admin"))
             {
-                // Kiểm tra nếu đã có admin thì không cần tạo mới
-                if (await context.NguoiDungs.AnyAsync(u => u.VaiTro == "Admin"))
-                {
-                    return;
-                }
+                // Tạo vai trò Admin
+                await roleManager.CreateAsync(new IdentityRole("Admin"));
+            }
 
-                // Mã hóa mật khẩu
-                var passwordHasher = new PasswordHasher<NguoiDung>();
-                var hashedPassword = passwordHasher.HashPassword(null, "Admin@123");
+            // Kiểm tra nếu đã có admin thì không cần tạo mới
+            if (await userManager.Users.AnyAsync(u => u.UserName == "admin"))
+            {
+                return;
+            }
 
-                // Thêm admin mới
-                var adminUser = new NguoiDung
-                {
-                    MaNguoiDung = Guid.NewGuid().ToString(),
-                    TenDangNhap = "admin",
-                    MatKhau = hashedPassword,
-                    Email = "admin@example.com",
-                    VaiTro = "Admin",
-                    NgayTao = DateTime.Now
-                };
+            // Tạo người dùng admin mới
+            var adminUser = new ApplicationUser
+            {
+                UserName = "admin",
+                Email = "admin@example.com",
+                EmailConfirmed = true, // Đánh dấu email đã xác nhận
+                // Các thuộc tính khác nếu cần
+            };
 
-                context.NguoiDungs.Add(adminUser);
-                await context.SaveChangesAsync();
+            // Tạo người dùng với mật khẩu
+            var result = await userManager.CreateAsync(adminUser, "Admin@123");
+
+            if (result.Succeeded)
+            {
+                // Gán vai trò Admin cho người dùng
+                await userManager.AddToRoleAsync(adminUser, "Admin");
             }
         }
     }
-
-
 }

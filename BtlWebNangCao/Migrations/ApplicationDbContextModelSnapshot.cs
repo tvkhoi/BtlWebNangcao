@@ -22,7 +22,7 @@ namespace BtlWebNangCao.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("BtlWebNangCao.Data.ApplicationUser", b =>
+            modelBuilder.Entity("BtlWebNangCao.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -46,6 +46,12 @@ namespace BtlWebNangCao.Migrations
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
+
+                    b.Property<DateTime>("NgaySua")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("NgayTao")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
@@ -85,46 +91,6 @@ namespace BtlWebNangCao.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
-                });
-
-            modelBuilder.Entity("BtlWebNangCao.Models.NguoiDung", b =>
-                {
-                    b.Property<string>("MaNguoiDung")
-                        .HasMaxLength(450)
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("MatKhau")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<DateTime>("NgayTao")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("TenDangNhap")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("VaiTro")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.HasKey("MaNguoiDung");
-
-                    b.HasIndex("Email")
-                        .IsUnique();
-
-                    b.HasIndex("TenDangNhap")
-                        .IsUnique();
-
-                    b.ToTable("NguoiDungs");
                 });
 
             modelBuilder.Entity("BtlWebNangCao.Models.PhongChat", b =>
@@ -357,7 +323,7 @@ namespace BtlWebNangCao.Migrations
 
             modelBuilder.Entity("BtlWebNangCao.Models.PhongChat", b =>
                 {
-                    b.HasOne("BtlWebNangCao.Models.NguoiDung", "NguoiTao")
+                    b.HasOne("BtlWebNangCao.Models.ApplicationUser", "NguoiTao")
                         .WithMany("DanhSachPhongTao")
                         .HasForeignKey("MaNguoiTao")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -368,7 +334,7 @@ namespace BtlWebNangCao.Migrations
 
             modelBuilder.Entity("BtlWebNangCao.Models.ThanhVienPhong", b =>
                 {
-                    b.HasOne("BtlWebNangCao.Models.NguoiDung", "NguoiDung")
+                    b.HasOne("BtlWebNangCao.Models.ApplicationUser", "NguoiDung")
                         .WithMany("DanhSachPhongThamGia")
                         .HasForeignKey("MaNguoiDung")
                         .OnDelete(DeleteBehavior.NoAction)
@@ -387,7 +353,7 @@ namespace BtlWebNangCao.Migrations
 
             modelBuilder.Entity("BtlWebNangCao.Models.TinNhan", b =>
                 {
-                    b.HasOne("BtlWebNangCao.Models.NguoiDung", "NguoiGui")
+                    b.HasOne("BtlWebNangCao.Models.ApplicationUser", "NguoiGui")
                         .WithMany("DanhSachTinNhan")
                         .HasForeignKey("MaNguoiGui")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -415,7 +381,7 @@ namespace BtlWebNangCao.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("BtlWebNangCao.Data.ApplicationUser", null)
+                    b.HasOne("BtlWebNangCao.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -424,7 +390,7 @@ namespace BtlWebNangCao.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("BtlWebNangCao.Data.ApplicationUser", null)
+                    b.HasOne("BtlWebNangCao.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -439,7 +405,7 @@ namespace BtlWebNangCao.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BtlWebNangCao.Data.ApplicationUser", null)
+                    b.HasOne("BtlWebNangCao.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -448,14 +414,14 @@ namespace BtlWebNangCao.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("BtlWebNangCao.Data.ApplicationUser", null)
+                    b.HasOne("BtlWebNangCao.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("BtlWebNangCao.Models.NguoiDung", b =>
+            modelBuilder.Entity("BtlWebNangCao.Models.ApplicationUser", b =>
                 {
                     b.Navigation("DanhSachPhongTao");
 

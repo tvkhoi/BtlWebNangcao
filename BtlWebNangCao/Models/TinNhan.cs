@@ -16,7 +16,7 @@ namespace BtlWebNangCao.Models
         [Required]
         public string MaNguoiGui { get; set; }
         [ForeignKey("MaNguoiGui")]
-        public NguoiDung NguoiGui { get; set; }
+        public ApplicationUser NguoiGui { get; set; }
 
         [Required]
         public string NoiDung { get; set; }
