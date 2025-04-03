@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+    <!-- Navbar cho Mobile -->
+    <nav class="navbar navbar-dark bg-dark d-md-none">
+        <div class="container-fluid">
+            <button class="btn btn-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas">
+                ☰ Menu
+            </button>
+        </div>
+    </nav>
+
+    <div class="d-flex">
+        <!-- Sidebar Desktop -->
+        <nav class="bg-dark text-white p-3 vh-100 d-none d-md-block" id="sidebar">
+            <h4>Admin Panel</h4>
+            <ul class="nav flex-column">
+                <li class="nav-item"><a href="/Admin" class="nav-link text-white">🏠 Dashboard</a></li>
+                <li class="nav-item"><a href="/Admin/NguoiDung" class="nav-link text-white">👥 Quản lý Người Dùng</a></li>
+                <li class="nav-item"><a href="/Admin/PhongChat" class="nav-link text-white">💬 Quản lý Phòng Chat</a></li>
+                <li class="nav-item"><a href="/Admin/TinNhan" class="nav-link text-white">✉️ Quản lý Tin Nhắn</a></li>
+                <li class="nav-item"><a href="/Admin/Logs" class="nav-link text-white">📜 Nhật ký Hoạt Động</a></li>
+                <li class="nav-item"><a href="/Admin/Settings" class="nav-link text-white">⚙️ Cấu Hình</a></li>
+            </ul>
+        </nav>
+
+        <!-- Sidebar Mobile (Offcanvas) -->
+        <div class="offcanvas offcanvas-start bg-dark text-white" id="sidebarOffcanvas">
+            <div class="offcanvas-header">
+                <h4>Admin Panel</h4>
+                <button type="button" class="btn-close text-white" data-bs-dismiss="offcanvas"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="nav flex-column">
+                    <li class="nav-item"><a href="/Admin" class="nav-link text-white">🏠 Dashboard</a></li>
+                    <li class="nav-item"><a href="/Admin/NguoiDung" class="nav-link text-white">👥 Quản lý Người Dùng</a></li>
+                    <li class="nav-item"><a href="/Admin/PhongChat" class="nav-link text-white">💬 Quản lý Phòng Chat</a></li>
+                    <li class="nav-item"><a href="/Admin/TinNhan" class="nav-link text-white">✉️ Quản lý Tin Nhắn</a></li>
+                    <li class="nav-item"><a href="/Admin/Logs" class="nav-link text-white">📜 Nhật ký Hoạt Động</a></li>
+                    <li class="nav-item"><a href="/Admin/Settings" class="nav-link text-white">⚙️ Cấu Hình</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Nội dung chính -->
+        <div class="container-fluid p-4 w-100">
+            @RenderBody()
+        </div>
+    </div>
+
+</body>
+</html>

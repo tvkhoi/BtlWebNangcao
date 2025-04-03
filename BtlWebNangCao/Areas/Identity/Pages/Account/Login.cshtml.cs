@@ -149,6 +149,13 @@ namespace BtlWebNangCao.Areas.Identity.Pages.Account
                         {
                             return RedirectToAction("Index", "Admin");
                         }
+
+                        // Cập nhật thông tin hoạt động của người dùng
+                        user.LastActiveDate = DateTime.UtcNow.Date; // Cập nhật ngày hiện tại
+
+                        // Cập nhật vào cơ sở dữ liệu
+                        await _userManager.UpdateAsync(user);
+
                         return LocalRedirect(returnUrl);
                     }
                 }

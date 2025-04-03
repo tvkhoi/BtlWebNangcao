@@ -52,6 +52,9 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
 builder.Services.Configure<SmtpSettings>(builder.Configuration.GetSection("SmtpSettings"));
 
 builder.Services.AddScoped<RoleInitializer>();
+
+builder.Services.AddHostedService<ResetActiveUsersService>();
+
 // Đăng ký dịch vụ SmtpEmailSender để sử dụng cho IEmailSender
 builder.Services.AddTransient<IEmailSender, SmtpEmailSender>();
 
@@ -127,11 +130,29 @@ app.Use(async (context, next) =>
     {
         var role = context.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
 
+        // Sử dụng email hoặc tên người dùng thay vì userId
+        var userEmail = context.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
+        var userName = context.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value;
+
+        var userManager = context.RequestServices.GetRequiredService<UserManager<ApplicationUser>>();
+        ApplicationUser user = null;
+
+        // Tìm người dùng theo email hoặc tên
+        if (!string.IsNullOrEmpty(userEmail))
+        {
+            user = await userManager.FindByEmailAsync(userEmail);
+        }
+        else if (!string.IsNullOrEmpty(userName))
+        {
+            user = await userManager.FindByNameAsync(userName);
+        }
+
         if (string.IsNullOrEmpty(role))
         {
             await context.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return;
         }
+        
         if (role == "Admin")
         {
             // Nếu người dùng đã ở trang Admin, không điều hướng lại
@@ -146,6 +167,9 @@ app.Use(async (context, next) =>
             // Nếu người dùng đã ở trang User, không điều hướng lại
             if (!context.Request.Path.StartsWithSegments("/Home"))
             {
+                // Cập nhật LastActiveDate khi người dùng thực hiện một hành động
+                user.LastActiveDate = DateTime.UtcNow;
+                await userManager.UpdateAsync(user);
                 context.Response.Redirect("/Home");
                 return; // Dừng xử lý tiếp theo
             }

@@ -6,6 +6,10 @@ namespace BtlWebNangCao.Models
     {
         public DateTime NgayTao { get; set; } = DateTime.Now;
         public DateTime NgaySua { get; set; } = DateTime.Now;
+
+        // Thêm thuộc tính LastActiveDate để lưu trữ thời gian người dùng hoạt động cuối cùng
+        public DateTime? LastActiveDate { get; set; }
+
         // Quan hệ 1-N: Một người dùng có thể tạo nhiều phòng chat
         public ICollection<PhongChat> DanhSachPhongTao { get; set; }
 
