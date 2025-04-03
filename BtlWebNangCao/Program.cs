@@ -141,12 +141,12 @@ app.Use(async (context, next) =>
                 return; // Dừng xử lý tiếp theo
             }
         }
-        else if (role == "User ")
+        else if (role == "User")
         {
             // Nếu người dùng đã ở trang User, không điều hướng lại
-            if (!context.Request.Path.StartsWithSegments("/Home "))
+            if (!context.Request.Path.StartsWithSegments("/Home"))
             {
-                context.Response.Redirect("/Home ");
+                context.Response.Redirect("/Home");
                 return; // Dừng xử lý tiếp theo
             }
         }
@@ -162,20 +162,6 @@ app.Use(async (context, next) =>
     }
     await next();
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
