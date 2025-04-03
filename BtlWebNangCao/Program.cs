@@ -1,19 +1,35 @@
 using BtlWebNangCao.Data;
 using BtlWebNangCao.Models;
 using BtlWebNangCao.Services;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages(); // Hỗ trợ Razor Pages (cho Identity UI)
+// Thêm Logging vào ứng dụng
+builder.Logging.ClearProviders(); // Xóa các provider mặc định
+builder.Logging.AddConsole(); // Thêm logging ra console
+builder.Logging.AddDebug();   // Thêm logging vào Debug Output (cho Visual Studio)
 
 // đăng ký DbContext
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Cấu hình Antiforgery
+builder.Services.AddAntiforgery(options =>
+{
+    options.Cookie.HttpOnly = true; // Chỉ truy cập qua HTTP, không thể truy cập từ JavaScript
+    options.Cookie.SecurePolicy = CookieSecurePolicy.Always; // Luôn gửi qua HTTPS
+    options.Cookie.SameSite = SameSiteMode.None; // Bảo mật chống tấn công CSRF
+});
 
 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
@@ -41,23 +57,31 @@ builder.Services.AddTransient<IEmailSender, SmtpEmailSender>();
 
 // Thêm dịch vụ nguoidung
 //builder.Services.AddScoped<NguoiDungService>();
-
+var loggerFactory = LoggerFactory.Create(builder => builder.AddConsole());
+var logger = loggerFactory.CreateLogger<Program>();
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
+    options.Cookie.SecurePolicy = CookieSecurePolicy.Always; // Bắt buộc HTTPS
+    options.Cookie.SameSite = SameSiteMode.None; // Cho phép cookie được gửi qua các yêu cầu cross-site
     options.ExpireTimeSpan = TimeSpan.FromDays(14); // Giữ đăng nhập trong 14 ngày
     options.SlidingExpiration = true; // Gia hạn cookie mỗi khi người dùng hoạt động
     options.LoginPath = "/Identity/Account/Login"; // Đường dẫn trang đăng nhập
     options.LogoutPath = "/Identity/Account/Logout"; // Đường dẫn trang đăng xuất
+    options.AccessDeniedPath = "/Identity/Account/AccessDenied";
 });
 
 // Thêm dịch vụ Session
+//builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(30); // Thời gian hết hạn session
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true; // Cần thiết cho việc chạy ứng dụng
+    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+    options.Cookie.SameSite = SameSiteMode.None; // Ngăn chặn tấn công CSRF
+    options.Cookie.Name = ".MySampleMVCWeb.Session";
 });
 
 
@@ -75,6 +99,7 @@ using (var scope = app.Services.CreateScope())
     await roleInitializer.InitializeAsync();
 }
 
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -89,59 +114,68 @@ app.UseStaticFiles();
 app.UseRouting();
 
 
-app.UseSession(); // Bật middleware session
 
+app.UseSession(); // Bật middleware session
 app.UseAuthentication(); // Bật middleware xác thực
 app.UseAuthorization();
 
-// Middleware kiểm tra trạng thái đăng nhập và lần đầu truy cập
+// Middleware kiểm tra trạng thái đăng nhập
+
 app.Use(async (context, next) =>
 {
-    // Kiểm tra nếu đã đăng nhập
     if (context.User.Identity.IsAuthenticated)
     {
-        // Lấy thông tin vai trò từ session
-        string userRole = context.Session.GetString("User Role");
+        var role = context.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
 
-        if (string.IsNullOrEmpty(userRole))
+        if (string.IsNullOrEmpty(role))
         {
-            // Nếu session chưa có role, kiểm tra trong cơ sở dữ liệu
-            using (var scope = context.RequestServices.CreateScope())
-            {
-                var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
-                var userEmail = context.User.Identity.Name;
-                var user = await userManager.FindByEmailAsync(userEmail);
-
-                if (user != null)
-                {
-                    // Lấy vai trò của người dùng
-                    var roles = await userManager.GetRolesAsync(user);
-                    userRole = roles.FirstOrDefault(); // Lấy vai trò đầu tiên (nếu có)
-                    context.Session.SetString("User Role", userRole); // Lưu vào session
-                }
-            }
-        }
-
-        // Kiểm tra quyền truy cập trang Admin
-        if (context.Request.Path.StartsWithSegments("/Admin") && userRole != "Admin")
-        {
-            context.Response.Redirect("/Identity/Account/AccessDenied"); // Chuyển hướng nếu không có quyền
+            await context.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return;
         }
-
-        await next(); // Tiếp tục xử lý request
-    }
-    else if (context.Session.GetString("IsFirstVisit") == null)
-    {
-        // Nếu là lần đầu truy cập, lưu trạng thái và điều hướng đến trang đăng nhập
-        context.Session.SetString("IsFirstVisit", "false");
-        context.Response.Redirect("/Identity/Account/Login");
+        if (role == "Admin")
+        {
+            // Nếu người dùng đã ở trang Admin, không điều hướng lại
+            if (!context.Request.Path.StartsWithSegments("/Admin"))
+            {
+                context.Response.Redirect("/Admin");
+                return; // Dừng xử lý tiếp theo
+            }
+        }
+        else if (role == "User ")
+        {
+            // Nếu người dùng đã ở trang User, không điều hướng lại
+            if (!context.Request.Path.StartsWithSegments("/Home "))
+            {
+                context.Response.Redirect("/Home ");
+                return; // Dừng xử lý tiếp theo
+            }
+        }
     }
     else
     {
-        await next(); // Tiếp tục nếu không phải lần đầu truy cập
+        // Nếu người dùng chưa đăng nhập, điều hướng đến trang đăng nhập
+        if (!context.Request.Path.StartsWithSegments("/Identity/Account/Login"))
+        {
+            context.Response.Redirect("/Identity/Account/Login");
+            return; // Dừng xử lý tiếp theo
+        }
     }
+    await next();
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

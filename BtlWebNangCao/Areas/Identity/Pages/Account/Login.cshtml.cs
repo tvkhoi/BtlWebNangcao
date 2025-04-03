@@ -17,6 +17,9 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using BtlWebNangCao.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Security.Claims;
 
 namespace BtlWebNangCao.Areas.Identity.Pages.Account
 {
@@ -112,45 +115,53 @@ namespace BtlWebNangCao.Areas.Identity.Pages.Account
         {
             returnUrl ??= Url.Content("~/");
 
-            ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
-
             if (ModelState.IsValid)
             {
-                var user = await _userManager.FindByEmailAsync(Input.UserNameorEmail);
+                var user = await _userManager.FindByEmailAsync(Input.UserNameorEmail)
+                           ?? await _userManager.FindByNameAsync(Input.UserNameorEmail);
+
                 if (user != null)
                 {
                     var result = await _signInManager.PasswordSignInAsync(user, Input.Password, Input.RememberMe, lockoutOnFailure: false);
 
                     if (result.Succeeded)
                     {
-                        // Lấy vai trò của người dùng
                         var roles = await _userManager.GetRolesAsync(user);
-                        HttpContext.Session.SetString("User Role", roles.FirstOrDefault() ?? "User ");
+                        var userRole = roles.FirstOrDefault() ?? "User";
+                        var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Name, user.UserName),
+                    new Claim(ClaimTypes.Email, user.Email),
+                    new Claim(ClaimTypes.Role, userRole)
+                };
 
-                        _logger.LogInformation("User  logged in.");
+                        var claimsIdentity = new ClaimsIdentity(claims, IdentityConstants.ApplicationScheme);
+                        var authProperties = new AuthenticationProperties
+                        {
+                            IsPersistent = true,
+                            ExpiresUtc = Input.RememberMe ? DateTime.UtcNow.AddDays(14) : DateTime.UtcNow.AddHours(1)
+                        };
+
+                        await HttpContext.SignInAsync(IdentityConstants.ApplicationScheme,
+                            new ClaimsPrincipal(claimsIdentity), authProperties);
+
+                        if (userRole == "Admin")
+                        {
+                            return RedirectToAction("Index", "Admin");
+                        }
                         return LocalRedirect(returnUrl);
                     }
-                    if (result.RequiresTwoFactor)
-                    {
-                        return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
-                    }
-                    if (result.IsLockedOut)
-                    {
-                        _logger.LogWarning("User  account locked out.");
-                        return RedirectToPage("./Lockout");
-                    }
-                    else
-                    {
-                        ModelState.AddModelError(string.Empty, "Thông tin đăng nhập không hợp lệ.");
-                        return Page();
-                    }
                 }
+
                 ModelState.AddModelError(string.Empty, "Thông tin đăng nhập không hợp lệ.");
-                return Page();
             }
 
             return Page();
         }
+
+
+
+
 
 
     }
