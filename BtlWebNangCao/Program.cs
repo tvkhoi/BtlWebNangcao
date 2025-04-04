@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using System.IO;
 using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -150,6 +151,12 @@ app.Use(async (context, next) =>
         if (string.IsNullOrEmpty(role))
         {
             await context.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return;
+        }
+        var path = context.Request.Path.ToString();
+        if (path.StartsWith("/Identity/Account/Logout", StringComparison.OrdinalIgnoreCase))
+        {
+            await next(); // Cho phép đi tiếp đến xử lý đăng xuất
             return;
         }
 
