@@ -1,0 +1,92 @@
+﻿@model List<BtlWebNangCao.ViewModels.UserViewModel>
+
+@{
+    ViewData["Title"] = "Quản lý Người Dùng";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Quản lý Người Dùng</h2>
+
+<!-- Thanh tìm kiếm -->
+<div class="mb-3">
+    <input type="text" id="searchTerm" class="form-control" placeholder="Tìm kiếm người dùng" />
+</div>
+
+<div class="table-responsive">
+    <table id="userTable" class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên Người Dùng</th>
+                <th>Email</th>
+                <th>Vai Trò</th>
+                <th>Trạng Thái</th>
+                <th>Hành Động</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.Id</td>
+                    <td>@user.UserName</td>
+                    <td>@user.Email</td>
+                    <td>@user.Roles</td>
+                    <td>
+                        <span class="badge @(user.IsLockedOut ? "bg-danger" : "bg-success")">
+                            @(user.IsLockedOut ? "Bị khóa" : "Hoạt động")
+                        </span>
+                    </td>
+                    <td>
+                        <form method="post" asp-action="@(user.IsLockedOut ? "Unlock" : "Lock")" asp-route-id="@user.Id">
+                            <button type="submit" class="btn @(user.IsLockedOut ? "btn-success" : "btn-warning") btn-sm">
+                                @(user.IsLockedOut ? "Mở khóa" : "Khóa")
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+@section Scripts {
+    <script>
+        // Gửi yêu cầu AJAX khi người dùng nhập vào thanh tìm kiếm
+        $("#searchTerm").on("keyup", function () {
+            var searchTerm = $(this).val();
+
+            $.ajax({
+                url: '@Url.Action("SearchUsers", "NguoiDung")', // Đường dẫn đến action tìm kiếm
+                type: 'GET',
+                data: { searchTerm: searchTerm }, // Dữ liệu tìm kiếm
+                success: function (data) {
+                    // Xóa các hàng hiện tại trong bảng
+                    $("#userTable tbody").empty();
+
+                    // Cập nhật bảng với dữ liệu tìm kiếm
+                    data.forEach(function (user) {
+                        var statusBadge = user.isLockedOut ? 'bg-danger' : 'bg-success';
+                        var statusText = user.isLockedOut ? 'Bị khóa' : 'Hoạt động';
+                        var actionButton = user.isLockedOut ?
+                            `<button class="btn btn-success btn-sm">Mở khóa</button>` :
+                            `<button class="btn btn-warning btn-sm">Khóa</button>`;
+
+                        var row = `<tr>
+                                                <td>${user.id}</td>
+                                                <td>${user.userName}</td>
+                                                <td>${user.email}</td>
+                                                <td>${user.roles}</td>
+                                                <td><span class="badge ${statusBadge}">${statusText}</span></td>
+                                                <td><form method="post" action="/Admin/NguoiDung/${user.isLockedOut ? 'Unlock' : 'Lock'}/${user.id}">${actionButton}</form></td>
+                                            </tr>`;
+
+                        $("#userTable tbody").append(row); // Thêm dòng mới vào bảng
+                    });
+                }
+            });
+        });
+    </script>
+}
+
