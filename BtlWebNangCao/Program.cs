@@ -177,8 +177,11 @@ app.Use(async (context, next) =>
     }
     else
     {
-        // Nếu người dùng chưa đăng nhập, điều hướng đến trang đăng nhập
-        if (!context.Request.Path.StartsWithSegments("/Identity/Account/Login"))
+        // Nếu người dùng chưa đăng nhập, cho phép truy cập đến trang đăng nhập, đăng ký và quên mật khẩu
+        var path = context.Request.Path.ToString();
+        if (!path.StartsWith("/Identity/Account/Login", StringComparison.OrdinalIgnoreCase) &&
+            !path.StartsWith("/Identity/Account/Register", StringComparison.OrdinalIgnoreCase) &&
+            !path.StartsWith("/Identity/Account/ForgotPassword", StringComparison.OrdinalIgnoreCase))
         {
             context.Response.Redirect("/Identity/Account/Login");
             return; // Dừng xử lý tiếp theo
