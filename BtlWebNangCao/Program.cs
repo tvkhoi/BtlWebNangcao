@@ -152,7 +152,7 @@ app.Use(async (context, next) =>
             await context.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return;
         }
-        
+
         if (role == "Admin")
         {
             // Nếu người dùng đã ở trang Admin, không điều hướng lại
@@ -181,7 +181,8 @@ app.Use(async (context, next) =>
         var path = context.Request.Path.ToString();
         if (!path.StartsWith("/Identity/Account/Login", StringComparison.OrdinalIgnoreCase) &&
             !path.StartsWith("/Identity/Account/Register", StringComparison.OrdinalIgnoreCase) &&
-            !path.StartsWith("/Identity/Account/ForgotPassword", StringComparison.OrdinalIgnoreCase))
+            !path.StartsWith("/Identity/Account/ForgotPassword", StringComparison.OrdinalIgnoreCase)&&
+            !path.StartsWith("/Identity/Account/ConfirmEmail", StringComparison.OrdinalIgnoreCase))
         {
             context.Response.Redirect("/Identity/Account/Login");
             return; // Dừng xử lý tiếp theo
