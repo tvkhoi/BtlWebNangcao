@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\controllers\\admin\\phongchatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:controllers\\admin\\phongchatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\btl\\btlwebnangcao\\btlwebnangcao\\views\\admin\\phongchat\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:views\\admin\\phongchat\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\btl\\btlwebnangcao\\btlwebnangcao\\views\\admin\\phongchat\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:views\\admin\\phongchat\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\views\\admin\\phongchat\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:views\\admin\\phongchat\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\views\\shared\\_layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:views\\shared\\_layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\btl\\btlwebnangcao\\btlwebnangcao\\areas\\identity\\pages\\account\\logout.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:areas\\identity\\pages\\account\\logout.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\btl\\btlwebnangcao\\btlwebnangcao\\areas\\identity\\pages\\account\\logout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:areas\\identity\\pages\\account\\logout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\btl\\btlwebnangcao\\btlwebnangcao\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\controllers\\admin\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:controllers\\admin\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -32,6 +32,20 @@
           "DockedHeight": 52,
           "SelectedChildIndex": 12,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Views\\Admin\\PhongChat\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\PhongChat\\Index.cshtml",
+              "ToolTip": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Views\\Admin\\PhongChat\\Index.cshtml",
+              "RelativeToolTip": "Views\\Admin\\PhongChat\\Index.cshtml",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAqwBcAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-04T12:53:01.378Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
@@ -70,67 +84,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Logout.cshtml",
-              "DocumentMoniker": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Areas\\Identity\\Pages\\Account\\Logout.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Logout.cshtml",
-              "ToolTip": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Areas\\Identity\\Pages\\Account\\Logout.cshtml",
-              "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\Logout.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAABHAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-04T08:37:21.026Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Logout.cshtml.cs",
-              "DocumentMoniker": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Areas\\Identity\\Pages\\Account\\Logout.cshtml.cs",
-              "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Logout.cshtml.cs",
-              "ToolTip": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Areas\\Identity\\Pages\\Account\\Logout.cshtml.cs",
-              "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\Logout.cshtml.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAADwvx8AAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T08:37:19.895Z",
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Views\\Admin\\PhongChat\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\PhongChat\\Edit.cshtml",
+              "ToolTip": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Views\\Admin\\PhongChat\\Edit.cshtml",
+              "RelativeToolTip": "Views\\Admin\\PhongChat\\Edit.cshtml",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAACMAAABEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-04T21:58:08.161Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAJQAAAAAAAAAAAAAAJ4AAABBAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T08:28:57.657Z",
+              "DocumentIndex": 2,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Views\\Admin\\PhongChat\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\PhongChat\\Create.cshtml",
+              "ToolTip": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Views\\Admin\\PhongChat\\Create.cshtml",
+              "RelativeToolTip": "Views\\Admin\\PhongChat\\Create.cshtml",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAgwBsAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-04T13:50:44.564Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "_LayoutAdmin.cshtml",
-              "DocumentMoniker": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Views\\Shared\\_LayoutAdmin.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_LayoutAdmin.cshtml",
-              "ToolTip": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Views\\Shared\\_LayoutAdmin.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_LayoutAdmin.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-04T04:20:15.474Z",
+              "Title": "PhongChatController.cs",
+              "DocumentMoniker": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Controllers\\Admin\\PhongChatController.cs",
+              "RelativeDocumentMoniker": "Controllers\\Admin\\PhongChatController.cs",
+              "ToolTip": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Controllers\\Admin\\PhongChatController.cs*",
+              "RelativeToolTip": "Controllers\\Admin\\PhongChatController.cs*",
+              "ViewState": "AQIAAFwAAAAAAAAAAAAAwGwAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-04T12:50:41.758Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "AdminController.cs",
-              "DocumentMoniker": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Controllers\\Admin\\AdminController.cs",
-              "RelativeDocumentMoniker": "Controllers\\Admin\\AdminController.cs",
-              "ToolTip": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Controllers\\Admin\\AdminController.cs",
-              "RelativeToolTip": "Controllers\\Admin\\AdminController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T03:52:25.844Z",
+              "Title": "_LayoutAdmin.cshtml",
+              "DocumentMoniker": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Views\\Shared\\_LayoutAdmin.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_LayoutAdmin.cshtml",
+              "ToolTip": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Views\\Shared\\_LayoutAdmin.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_LayoutAdmin.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAABSAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-04T04:20:15.474Z",
               "EditorCaption": ""
             }
           ]

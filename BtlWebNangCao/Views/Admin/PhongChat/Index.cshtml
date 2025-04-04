@@ -1,0 +1,48 @@
+﻿@using BtlWebNangCao.ViewModels
+@model IEnumerable<PhongChatViewModel>
+@{
+    ViewData["Title"] = "Quản lý Phòng Chat";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Quản lý Phòng Chat</h2>
+
+<a href="@Url.Action("Create", "PhongChat")" class="btn btn-primary mb-3">Thêm phòng mới</a>
+
+<form method="get">
+    <input type="text" name="search" class="form-control w-25 d-inline" placeholder="Tìm kiếm...">
+    <button type="submit" class="btn btn-info">Tìm</button>
+</form>
+
+<table class="table table-bordered mt-3">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tên phòng</th>
+            <th>Mô tả</th>
+            <th>Công khai</th>
+            <th>Người tạo</th>
+            <th>Ngày tạo</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var phong in Model)
+        {
+            <tr>
+                <td>@phong.Pk_iMaPhong</td>
+                <td>@phong.sTieuDe</td>
+                <td>@phong.sMoTa</td>
+                <td>@(phong.bLaCongKhai ? "Công khai" : "Riêng tư")</td>
+                <td>@phong.TenNguoiTao</td>
+                <td>@phong.dNgayTao.ToString("dd/MM/yyyy")</td>
+                <td>
+                    <a href="@Url.Action("Edit", "PhongChat", new { id = phong.Pk_iMaPhong })" class="btn btn-warning">Sửa</a>
+                    <form asp-action="Delete" asp-route-id="@phong.Pk_iMaPhong" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-danger">Xóa</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
