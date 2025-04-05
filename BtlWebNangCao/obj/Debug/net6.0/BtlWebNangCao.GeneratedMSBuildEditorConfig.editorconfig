@@ -198,6 +198,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGhvbmdDaGF0XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/BTL/BtlWebNangcao/BtlWebNangCao/Views/Admin/ThanhVienPhong/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVGhhbmhWaWVuUGhvbmdcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BTL/BtlWebNangcao/BtlWebNangCao/Views/Admin/ThanhVienPhong/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVGhhbmhWaWVuUGhvbmdcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/BTL/BtlWebNangcao/BtlWebNangCao/Views/Admin/TinNhan/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVGluTmhhblxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
