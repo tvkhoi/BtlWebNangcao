@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\views\\admin\\phongchat\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:views\\admin\\phongchat\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\btl\\btlwebnangcao\\btlwebnangcao\\controllers\\admin\\tinnhancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:controllers\\admin\\tinnhancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\controllers\\admin\\phongchatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:controllers\\admin\\phongchatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\btl\\btlwebnangcao\\btlwebnangcao\\views\\admin\\phongchat\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:views\\admin\\phongchat\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\btl\\btlwebnangcao\\btlwebnangcao\\viewmodels\\phongchatviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:viewmodels\\phongchatviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\btl\\btlwebnangcao\\btlwebnangcao\\views\\admin\\phongchat\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:views\\admin\\phongchat\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\btl\\btlwebnangcao\\btlwebnangcao\\viewmodels\\tinnhanviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:viewmodels\\tinnhanviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\views\\shared\\_layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:views\\shared\\_layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\btl\\btlwebnangcao\\btlwebnangcao\\views\\admin\\tinnhan\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:views\\admin\\tinnhan\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\btl\\btlwebnangcao\\btlwebnangcao\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -29,8 +33,8 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedHeight": 52,
-          "SelectedChildIndex": 9,
+          "DockedHeight": 49,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,42 +74,67 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Views\\Admin\\PhongChat\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Admin\\PhongChat\\Index.cshtml",
-              "ToolTip": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Views\\Admin\\PhongChat\\Index.cshtml*",
-              "RelativeToolTip": "Views\\Admin\\PhongChat\\Index.cshtml*",
-              "ViewState": "AQIAABwAAAAAAAAAAAAUwCYAAAAvAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-04T12:53:01.378Z",
-              "IsPinned": true,
+              "DocumentIndex": 2,
+              "Title": "PhongChatViewModel.cs",
+              "DocumentMoniker": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\ViewModels\\PhongChatViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\PhongChatViewModel.cs",
+              "ToolTip": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\ViewModels\\PhongChatViewModel.cs",
+              "RelativeToolTip": "ViewModels\\PhongChatViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-05T02:56:28.454Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Views\\Admin\\PhongChat\\Edit.cshtml",
-              "RelativeDocumentMoniker": "Views\\Admin\\PhongChat\\Edit.cshtml",
-              "ToolTip": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Views\\Admin\\PhongChat\\Edit.cshtml",
-              "RelativeToolTip": "Views\\Admin\\PhongChat\\Edit.cshtml",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAACMAAABEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-04T21:58:08.161Z",
+              "DocumentIndex": 0,
+              "Title": "TinNhanController.cs",
+              "DocumentMoniker": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Controllers\\Admin\\TinNhanController.cs",
+              "RelativeDocumentMoniker": "Controllers\\Admin\\TinNhanController.cs",
+              "ToolTip": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Controllers\\Admin\\TinNhanController.cs*",
+              "RelativeToolTip": "Controllers\\Admin\\TinNhanController.cs*",
+              "ViewState": "AQIAACcAAAAAAAAAAAAqwDIAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-05T02:17:10.082Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Views\\Admin\\PhongChat\\Create.cshtml",
-              "RelativeDocumentMoniker": "Views\\Admin\\PhongChat\\Create.cshtml",
-              "ToolTip": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Views\\Admin\\PhongChat\\Create.cshtml",
-              "RelativeToolTip": "Views\\Admin\\PhongChat\\Create.cshtml",
-              "ViewState": "AQIAAAQAAAAAAAAAAAAgwBsAAAAzAAAA",
+              "Title": "TinNhanViewModel.cs",
+              "DocumentMoniker": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\ViewModels\\TinNhanViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\TinNhanViewModel.cs",
+              "ToolTip": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\ViewModels\\TinNhanViewModel.cs",
+              "RelativeToolTip": "ViewModels\\TinNhanViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-05T02:11:49.646Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Views\\Admin\\TinNhan\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\TinNhan\\Index.cshtml",
+              "ToolTip": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Views\\Admin\\TinNhan\\Index.cshtml",
+              "RelativeToolTip": "Views\\Admin\\TinNhan\\Index.cshtml",
+              "ViewState": "AQIAAD8AAAAAAAAAAAAuwE0AAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-04T13:50:44.564Z",
+              "WhenOpened": "2025-04-05T02:09:26.621Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "bootstrap.css",
+              "DocumentMoniker": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+              "RelativeDocumentMoniker": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+              "ToolTip": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+              "RelativeToolTip": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+              "ViewState": "AQIAAFUdAAAAAAAAAAAAAGodAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-04-05T01:58:03.089Z",
               "EditorCaption": ""
             },
             {
@@ -116,22 +145,9 @@
               "RelativeDocumentMoniker": "Controllers\\Admin\\PhongChatController.cs",
               "ToolTip": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Controllers\\Admin\\PhongChatController.cs",
               "RelativeToolTip": "Controllers\\Admin\\PhongChatController.cs",
-              "ViewState": "AQIAAG4AAAAAAAAAAAAcwJYAAAAAAAAA",
+              "ViewState": "AQIAAEwAAAAAAAAAAAAkwGMAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-04T12:50:41.758Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "_LayoutAdmin.cshtml",
-              "DocumentMoniker": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Views\\Shared\\_LayoutAdmin.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_LayoutAdmin.cshtml",
-              "ToolTip": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Views\\Shared\\_LayoutAdmin.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_LayoutAdmin.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAABSAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-04T04:20:15.474Z",
               "EditorCaption": ""
             }
           ]
@@ -151,7 +167,7 @@
           ]
         },
         {
-          "DockedHeight": 16,
+          "DockedHeight": 19,
           "SelectedChildIndex": -1,
           "Children": [
             {
