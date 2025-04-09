@@ -3,24 +3,56 @@
   "WorkspaceRootPath": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\views\\shared\\_layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\btl\\btlwebnangcao\\btlwebnangcao\\views\\admin\\thanhvienphong\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:views\\admin\\thanhvienphong\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\viewmodels\\phongchatviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:viewmodels\\phongchatviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\btl\\btlwebnangcao\\btlwebnangcao\\controllers\\admin\\thanhvienphongcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:controllers\\admin\\thanhvienphongcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\btl\\btlwebnangcao\\btlwebnangcao\\viewmodels\\thanhvienphongviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:viewmodels\\thanhvienphongviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\btl\\btlwebnangcao\\btlwebnangcao\\viewmodels\\thanhvienphongdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:viewmodels\\thanhvienphongdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\btl\\btlwebnangcao\\btlwebnangcao\\viewmodels\\thanhvienphongcreateviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:viewmodels\\thanhvienphongcreateviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\controllers\\admin\\tinnhancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:controllers\\admin\\tinnhancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\controllers\\admin\\phongchatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:controllers\\admin\\phongchatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\btl\\btlwebnangcao\\btlwebnangcao\\views\\admin\\thanhvienphong\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:views\\admin\\thanhvienphong\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\btl\\btlwebnangcao\\btlwebnangcao\\views\\shared\\_layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:views\\shared\\_layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\btl\\btlwebnangcao\\btlwebnangcao\\areas\\identity\\pages\\account\\logout.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:areas\\identity\\pages\\account\\logout.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\viewmodels\\tinnhanviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:viewmodels\\tinnhanviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\btl\\btlwebnangcao\\btlwebnangcao\\areas\\identity\\pages\\account\\logout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:areas\\identity\\pages\\account\\logout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\views\\admin\\tinnhan\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:views\\admin\\tinnhan\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\btl\\btlwebnangcao\\btlwebnangcao\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\controllers\\admin\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:controllers\\admin\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -29,7 +61,7 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedHeight": 52,
+          "DockedHeight": 49,
           "SelectedChildIndex": 12,
           "Children": [
             {
@@ -70,67 +102,168 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Logout.cshtml",
-              "DocumentMoniker": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Areas\\Identity\\Pages\\Account\\Logout.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Logout.cshtml",
-              "ToolTip": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Areas\\Identity\\Pages\\Account\\Logout.cshtml",
-              "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\Logout.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAABHAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-04T08:37:21.026Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Logout.cshtml.cs",
-              "DocumentMoniker": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Areas\\Identity\\Pages\\Account\\Logout.cshtml.cs",
-              "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Logout.cshtml.cs",
-              "ToolTip": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Areas\\Identity\\Pages\\Account\\Logout.cshtml.cs",
-              "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\Logout.cshtml.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAADwvx8AAAANAAAA",
+              "DocumentIndex": 5,
+              "Title": "ThanhVienPhongCreateViewModel.cs",
+              "DocumentMoniker": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\ViewModels\\ThanhVienPhongCreateViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\ThanhVienPhongCreateViewModel.cs",
+              "ToolTip": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\ViewModels\\ThanhVienPhongCreateViewModel.cs",
+              "RelativeToolTip": "ViewModels\\ThanhVienPhongCreateViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T08:37:19.895Z",
+              "WhenOpened": "2025-04-05T10:32:47.818Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAJQAAAAAAAAAAAAAAJ4AAABBAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T08:28:57.657Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "_LayoutAdmin.cshtml",
-              "DocumentMoniker": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Views\\Shared\\_LayoutAdmin.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_LayoutAdmin.cshtml",
-              "ToolTip": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Views\\Shared\\_LayoutAdmin.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_LayoutAdmin.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "DocumentIndex": 8,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Views\\Admin\\ThanhVienPhong\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\ThanhVienPhong\\Create.cshtml",
+              "ToolTip": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Views\\Admin\\ThanhVienPhong\\Create.cshtml",
+              "RelativeToolTip": "Views\\Admin\\ThanhVienPhong\\Create.cshtml",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAABkAAAA4AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-04T04:20:15.474Z",
+              "WhenOpened": "2025-04-05T10:30:18.436Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "AdminController.cs",
-              "DocumentMoniker": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Controllers\\Admin\\AdminController.cs",
-              "RelativeDocumentMoniker": "Controllers\\Admin\\AdminController.cs",
-              "ToolTip": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Controllers\\Admin\\AdminController.cs",
-              "RelativeToolTip": "Controllers\\Admin\\AdminController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAABAAAA",
+              "Title": "ThanhVienPhongDTO.cs",
+              "DocumentMoniker": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\ViewModels\\ThanhVienPhongDTO.cs",
+              "RelativeDocumentMoniker": "ViewModels\\ThanhVienPhongDTO.cs",
+              "ToolTip": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\ViewModels\\ThanhVienPhongDTO.cs",
+              "RelativeToolTip": "ViewModels\\ThanhVienPhongDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T03:52:25.844Z",
+              "WhenOpened": "2025-04-05T10:27:47.036Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Views\\Admin\\ThanhVienPhong\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\ThanhVienPhong\\Index.cshtml",
+              "ToolTip": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Views\\Admin\\ThanhVienPhong\\Index.cshtml*",
+              "RelativeToolTip": "Views\\Admin\\ThanhVienPhong\\Index.cshtml*",
+              "ViewState": "AQIAAFMAAAAAAAAAAAAAwGgAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-05T10:17:18.941Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ThanhVienPhongController.cs",
+              "DocumentMoniker": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Controllers\\Admin\\ThanhVienPhongController.cs",
+              "RelativeDocumentMoniker": "Controllers\\Admin\\ThanhVienPhongController.cs",
+              "ToolTip": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Controllers\\Admin\\ThanhVienPhongController.cs",
+              "RelativeToolTip": "Controllers\\Admin\\ThanhVienPhongController.cs",
+              "ViewState": "AQIAAGsAAAAAAAAAAAAAwIEAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-05T10:11:07.871Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ThanhVienPhongViewModel.cs",
+              "DocumentMoniker": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\ViewModels\\ThanhVienPhongViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\ThanhVienPhongViewModel.cs",
+              "ToolTip": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\ViewModels\\ThanhVienPhongViewModel.cs",
+              "RelativeToolTip": "ViewModels\\ThanhVienPhongViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-05T10:10:35.098Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "_LayoutAdmin.cshtml",
+              "DocumentMoniker": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Views\\Shared\\_LayoutAdmin.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_LayoutAdmin.cshtml",
+              "ToolTip": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Views\\Shared\\_LayoutAdmin.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_LayoutAdmin.cshtml",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAuwCAAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-05T03:51:20.073Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PhongChatViewModel.cs",
+              "DocumentMoniker": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\ViewModels\\PhongChatViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\PhongChatViewModel.cs",
+              "ToolTip": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\ViewModels\\PhongChatViewModel.cs",
+              "RelativeToolTip": "ViewModels\\PhongChatViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-05T02:56:28.454Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TinNhanController.cs",
+              "DocumentMoniker": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Controllers\\Admin\\TinNhanController.cs",
+              "RelativeDocumentMoniker": "Controllers\\Admin\\TinNhanController.cs",
+              "ToolTip": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Controllers\\Admin\\TinNhanController.cs",
+              "RelativeToolTip": "Controllers\\Admin\\TinNhanController.cs",
+              "ViewState": "AQIAACcAAAAAAAAAAAAqwDsAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-05T02:17:10.082Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "TinNhanViewModel.cs",
+              "DocumentMoniker": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\ViewModels\\TinNhanViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\TinNhanViewModel.cs",
+              "ToolTip": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\ViewModels\\TinNhanViewModel.cs",
+              "RelativeToolTip": "ViewModels\\TinNhanViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-05T02:11:49.646Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Views\\Admin\\TinNhan\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\TinNhan\\Index.cshtml",
+              "ToolTip": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Views\\Admin\\TinNhan\\Index.cshtml",
+              "RelativeToolTip": "Views\\Admin\\TinNhan\\Index.cshtml",
+              "ViewState": "AQIAAD8AAAAAAAAAAAAuwE0AAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-05T02:09:26.621Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "bootstrap.css",
+              "DocumentMoniker": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+              "RelativeDocumentMoniker": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+              "ToolTip": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+              "RelativeToolTip": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+              "ViewState": "AQIAAFUdAAAAAAAAAAAAAGodAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-04-05T01:58:03.089Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PhongChatController.cs",
+              "DocumentMoniker": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Controllers\\Admin\\PhongChatController.cs",
+              "RelativeDocumentMoniker": "Controllers\\Admin\\PhongChatController.cs",
+              "ToolTip": "D:\\BTL\\BtlWebNangcao\\BtlWebNangCao\\Controllers\\Admin\\PhongChatController.cs",
+              "RelativeToolTip": "Controllers\\Admin\\PhongChatController.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAAwCkAAABZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-04T12:50:41.758Z",
               "EditorCaption": ""
             }
           ]
@@ -150,7 +283,7 @@
           ]
         },
         {
-          "DockedHeight": 16,
+          "DockedHeight": 19,
           "SelectedChildIndex": -1,
           "Children": [
             {

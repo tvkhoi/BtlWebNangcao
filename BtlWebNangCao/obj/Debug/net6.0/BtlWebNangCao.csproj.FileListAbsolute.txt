@@ -731,3 +731,10 @@ D:\BTL\BtlWebNangcao\BtlWebNangCao\obj\Debug\net6.0\refint\BtlWebNangCao.dll
 D:\BTL\BtlWebNangcao\BtlWebNangCao\obj\Debug\net6.0\BtlWebNangCao.pdb
 D:\BTL\BtlWebNangcao\BtlWebNangCao\obj\Debug\net6.0\BtlWebNangCao.genruntimeconfig.cache
 D:\BTL\BtlWebNangcao\BtlWebNangCao\obj\Debug\net6.0\ref\BtlWebNangCao.dll
+D:\BTL\BtlWebNangcao\BtlWebNangCao\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\BTL\BtlWebNangcao\BtlWebNangCao\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
+D:\BTL\BtlWebNangcao\BtlWebNangCao\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+D:\BTL\BtlWebNangcao\BtlWebNangCao\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+D:\BTL\BtlWebNangcao\BtlWebNangCao\bin\Debug\net6.0\X.PagedList.dll
+D:\BTL\BtlWebNangcao\BtlWebNangCao\bin\Debug\net6.0\X.PagedList.Mvc.Core.dll
+D:\BTL\BtlWebNangcao\BtlWebNangCao\bin\Debug\net6.0\X.PagedList.Web.Common.dll
