@@ -1,8 +1,15 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@page "/"
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+    var userName = HttpContextAccessor.HttpContext.User.Identity.IsAuthenticated
+        ? HttpContextAccessor.HttpContext.User.Identity.Name
+        : "Guest";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
+    <p>Welcome, @userName!</p>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>

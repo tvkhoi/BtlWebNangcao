@@ -6,15 +6,16 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using System.IO;
 using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddSignalR();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages(); // Hỗ trợ Razor Pages (cho Identity UI)
+builder.Services.AddServerSideBlazor(); // Hỗ trợ Blazor Server
 // Thêm Logging vào ứng dụng
 builder.Logging.ClearProviders(); // Xóa các provider mặc định
 builder.Logging.AddConsole(); // Thêm logging ra console
@@ -89,6 +90,16 @@ builder.Services.AddSession(options =>
 });
 
 
+builder.Services.AddCors(options =>
+{
+	options.AddDefaultPolicy(builder =>
+	{
+        builder.AllowAnyOrigin()
+               .AllowAnyHeader()
+               .AllowAnyMethod();
+	});
+});
+
 
 var app = builder.Build();
 
@@ -118,7 +129,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 
-
+app.UseCors();
 app.UseSession(); // Bật middleware session
 app.UseAuthentication(); // Bật middleware xác thực
 app.UseAuthorization();
@@ -172,7 +183,7 @@ app.Use(async (context, next) =>
         else if (role == "User")
         {
             // Nếu người dùng đã ở trang User, không điều hướng lại
-            if (!context.Request.Path.StartsWithSegments("/Home"))
+            if (!context.Request.Path.StartsWithSegments("/Home") && !context.Request.Path.StartsWithSegments("/Chat"))
             {
                 // Cập nhật LastActiveDate khi người dùng thực hiện một hành động
                 user.LastActiveDate = DateTime.UtcNow;
@@ -201,6 +212,8 @@ app.Use(async (context, next) =>
 
 
 app.MapRazorPages(); // Đăng ký Razor Pages để sử dụng Identity UI
+app.MapBlazorHub();
+app.MapHub<BtlWebNangCao.Hubs.ChatHub>("/chathub");
 
 app.MapControllerRoute(
     name: "default",
