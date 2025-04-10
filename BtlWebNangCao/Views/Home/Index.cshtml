@@ -28,8 +28,11 @@
             <!-- Tiêu đề phòng -->
             <div class="border-bottom p-3">
                 <h5 id="currentRoomName" class="mb-0 text-primary">Chọn phòng để bắt đầu</h5>
+                <button id="btnAddMember" class="btn btn-sm btn-outline-primary d-none" onclick="showAddUserToRoomModal()">
+                    <i class="fas fa-user-plus"></i> Thêm thành viên
+                </button>
             </div>
-
+            
             <!-- Tin nhắn -->
             <div id="chatMessages" class="flex-grow-1 p-3 overflow-auto" style="background-color: #f8f9fa;"></div>
 
@@ -238,6 +241,19 @@
             currentRoomId = roomId;
             document.getElementById("currentRoomName").innerText = roomName;
             document.getElementById("chatMessages").innerHTML = '';
+
+            // Lấy thông tin phòng để kiểm tra có phải phòng riêng tư không
+            fetch(`/api/rooms/${roomId}`)
+                .then(res => res.json())
+                .then(room => {
+                    const btnAddMember = document.getElementById("btnAddMember");
+                    if (room.laCongKhai == false) {
+                        btnAddMember.classList.remove("d-none");
+                    } else {
+                        btnAddMember.classList.add("d-none");
+                        btnAddMember.setAttribute("onclick", `showAddUserToRoomModal(${roomId})`); // Gửi id phòng
+                    }
+                });
 
             connection.invoke("JoinRoom", roomId);
 

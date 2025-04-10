@@ -22,6 +22,29 @@ namespace BtlWebNangCao.Controllers.Api
             _userManager = userManager;
         }
 
+        // GET: api/rooms/{id}
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetRoomById(int id)
+        {
+            var room = await _context.PhongChats
+                .Where(p => p.MaPhong == id)
+                .Select(p => new
+                {
+                    maPhong = p.MaPhong,
+                    tieuDe = p.TieuDe,
+                    laCongKhai = p.LaCongKhai
+                })
+                .FirstOrDefaultAsync();
+
+            if (room == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(room);
+        }
+
+
         // GET: api/rooms/my
         [HttpGet("my")]
         public async Task<IActionResult> GetMyRooms()

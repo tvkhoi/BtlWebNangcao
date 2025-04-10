@@ -214,6 +214,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVGluTmhhblxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Learn_advanced_web_programming/BTL2/BtlWebNangcao/BtlWebNangCao/Views/Chat/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Learn_advanced_web_programming/BTL2/BtlWebNangcao/BtlWebNangCao/Views/Chat/_ChatArea.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdFxfQ2hhdEFyZWEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Learn_advanced_web_programming/BTL2/BtlWebNangcao/BtlWebNangCao/Views/Chat/_RoomList.cshtml.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdFxfUm9vbUxpc3QuY3NodG1sLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Learn_advanced_web_programming/BTL2/BtlWebNangcao/BtlWebNangCao/Views/Chat/_UserList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhdFxfVXNlckxpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Learn_advanced_web_programming/BTL2/BtlWebNangcao/BtlWebNangCao/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
