@@ -3,32 +3,8 @@
   "WorkspaceRootPath": "D:\\Learn_advanced_web_programming\\BTL2\\BtlWebNangcao\\BtlWebNangCao\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\learn_advanced_web_programming\\btl2\\btlwebnangcao\\btlwebnangcao\\views\\admin\\thanhvienphong\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:views\\admin\\thanhvienphong\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\learn_advanced_web_programming\\btl2\\btlwebnangcao\\btlwebnangcao\\controllers\\admin\\thanhvienphongcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:controllers\\admin\\thanhvienphongcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\learn_advanced_web_programming\\btl2\\btlwebnangcao\\btlwebnangcao\\controllers\\api\\roomsapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:controllers\\api\\roomsapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\learn_advanced_web_programming\\btl2\\btlwebnangcao\\btlwebnangcao\\controllers\\admin\\phongchatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:controllers\\admin\\phongchatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\learn_advanced_web_programming\\btl2\\btlwebnangcao\\btlwebnangcao\\models\\phongchat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:models\\phongchat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\learn_advanced_web_programming\\btl2\\btlwebnangcao\\btlwebnangcao\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\learn_advanced_web_programming\\btl2\\btlwebnangcao\\btlwebnangcao\\hubs\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:hubs\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -79,92 +55,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\Learn_advanced_web_programming\\BTL2\\BtlWebNangcao\\BtlWebNangCao\\Views\\Admin\\ThanhVienPhong\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Admin\\ThanhVienPhong\\Index.cshtml",
-              "ToolTip": "D:\\Learn_advanced_web_programming\\BTL2\\BtlWebNangcao\\BtlWebNangCao\\Views\\Admin\\ThanhVienPhong\\Index.cshtml*",
-              "RelativeToolTip": "Views\\Admin\\ThanhVienPhong\\Index.cshtml*",
-              "ViewState": "AQIAACAAAAAAAAAAAAAIwDAAAABHAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-10T18:57:13.939Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ThanhVienPhongController.cs",
-              "DocumentMoniker": "D:\\Learn_advanced_web_programming\\BTL2\\BtlWebNangcao\\BtlWebNangCao\\Controllers\\Admin\\ThanhVienPhongController.cs",
-              "RelativeDocumentMoniker": "Controllers\\Admin\\ThanhVienPhongController.cs",
-              "ToolTip": "D:\\Learn_advanced_web_programming\\BTL2\\BtlWebNangcao\\BtlWebNangCao\\Controllers\\Admin\\ThanhVienPhongController.cs",
-              "RelativeToolTip": "Controllers\\Admin\\ThanhVienPhongController.cs",
-              "ViewState": "AQIAAHEAAAAAAAAAAAAswHoAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-10T18:54:24.506Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RoomsApiController.cs",
-              "DocumentMoniker": "D:\\Learn_advanced_web_programming\\BTL2\\BtlWebNangcao\\BtlWebNangCao\\Controllers\\Api\\RoomsApiController.cs",
-              "RelativeDocumentMoniker": "Controllers\\Api\\RoomsApiController.cs",
-              "ToolTip": "D:\\Learn_advanced_web_programming\\BTL2\\BtlWebNangcao\\BtlWebNangCao\\Controllers\\Api\\RoomsApiController.cs",
-              "RelativeToolTip": "Controllers\\Api\\RoomsApiController.cs",
-              "ViewState": "AQIAAFYAAAAAAAAAAAAqwGoAAAAuAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-10T18:34:15.188Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "PhongChatController.cs",
               "DocumentMoniker": "D:\\Learn_advanced_web_programming\\BTL2\\BtlWebNangcao\\BtlWebNangCao\\Controllers\\Admin\\PhongChatController.cs",
               "RelativeDocumentMoniker": "Controllers\\Admin\\PhongChatController.cs",
-              "ToolTip": "D:\\Learn_advanced_web_programming\\BTL2\\BtlWebNangcao\\BtlWebNangCao\\Controllers\\Admin\\PhongChatController.cs",
-              "RelativeToolTip": "Controllers\\Admin\\PhongChatController.cs",
-              "ViewState": "AQIAAHwAAAAAAAAAAAAwwJEAAAAvAAAA",
+              "ToolTip": "D:\\Learn_advanced_web_programming\\BTL2\\BtlWebNangcao\\BtlWebNangCao\\Controllers\\Admin\\PhongChatController.cs*",
+              "RelativeToolTip": "Controllers\\Admin\\PhongChatController.cs*",
+              "ViewState": "AQIAAHYAAAAAAAAAAAAcwIYAAABDAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-10T18:13:14.882Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ChatHub.cs",
-              "DocumentMoniker": "D:\\Learn_advanced_web_programming\\BTL2\\BtlWebNangcao\\BtlWebNangCao\\Hubs\\ChatHub.cs",
-              "RelativeDocumentMoniker": "Hubs\\ChatHub.cs",
-              "ToolTip": "D:\\Learn_advanced_web_programming\\BTL2\\BtlWebNangcao\\BtlWebNangCao\\Hubs\\ChatHub.cs",
-              "RelativeToolTip": "Hubs\\ChatHub.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFIAAAAkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-10T12:25:38.563Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\Learn_advanced_web_programming\\BTL2\\BtlWebNangcao\\BtlWebNangCao\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
-              "ToolTip": "D:\\Learn_advanced_web_programming\\BTL2\\BtlWebNangcao\\BtlWebNangCao\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAAOkAAAAAAAAAAAAIwP4AAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-10T03:26:41.442Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "PhongChat.cs",
-              "DocumentMoniker": "D:\\Learn_advanced_web_programming\\BTL2\\BtlWebNangcao\\BtlWebNangCao\\Models\\PhongChat.cs",
-              "RelativeDocumentMoniker": "Models\\PhongChat.cs",
-              "ToolTip": "D:\\Learn_advanced_web_programming\\BTL2\\BtlWebNangcao\\BtlWebNangCao\\Models\\PhongChat.cs",
-              "RelativeToolTip": "Models\\PhongChat.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA4AAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-10T16:00:27.468Z",
               "EditorCaption": ""
             }
           ]

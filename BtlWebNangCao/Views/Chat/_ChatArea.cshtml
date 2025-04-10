@@ -1,0 +1,26 @@
+﻿<div class="d-flex flex-column h-100">
+    <div class="p-3 border-bottom">
+        <h5 class="mb-0">@Model.CurrentRoomTitle</h5>
+        <small class="text-muted">@(Model.CurrentRoomIsPublic ? "Phòng công cộng" : "Phòng riêng tư") - @Model.CurrentRoomUserCount thành viên</small>
+    </div>
+    <div class="message-container flex-grow-1 overflow-auto p-3" id="messageContainer">
+        @foreach (var message in Model.Messages)
+        {
+            <div class="message @(message.IsCurrentUser ? "user-message" : message.IsAdmin ? "admin-message" : "other-message")">
+                <div class="message-header">@(message.IsCurrentUser ? "Bạn" : message.SenderName)</div>
+                <div class="message-content">@message.Content</div>
+                <div class="message-time">@message.SentAt.ToString("HH:mm dd/MM/yyyy")</div>
+            </div>
+        }
+    </div>
+    <div class="message-input p-3 border-top">
+        <form id="messageForm">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Nhập tin nhắn của bạn..." id="messageInput" required>
+                <button class="btn btn-primary" type="submit">
+                    <i class="bi bi-send"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

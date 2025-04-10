@@ -127,10 +127,24 @@ namespace BtlWebNangCao.Controllers.Admin
             if (phong == null)
                 return NotFound();
 
+            // Xóa thành viên trong phòng
+            var members = _context.ThanhVienPhongs.Where(tv => tv.MaPhong == id);
+            _context.ThanhVienPhongs.RemoveRange(members);
+
+            // Xóa tin nhắn trong phòng
+            var messages = _context.TinNhans.Where(tn => tn.MaPhong == id);
+            _context.TinNhans.RemoveRange(messages);
+
+            // Xóa phòng chat
             _context.PhongChats.Remove(phong);
+
+            // Lưu thay đổi vào cơ sở dữ liệu
             await _context.SaveChangesAsync();
+
+            // Quay lại trang Index
             return RedirectToAction("Index");
         }
+
 
         [HttpGet("SearchRooms")]
         public async Task<IActionResult> SearchRooms(string searchTerm)
