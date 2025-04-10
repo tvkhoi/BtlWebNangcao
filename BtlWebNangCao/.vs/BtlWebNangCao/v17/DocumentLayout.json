@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "D:\\Learn_advanced_web_programming\\BTL2\\BtlWebNangcao\\BtlWebNangCao\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\learn_advanced_web_programming\\btl2\\btlwebnangcao\\btlwebnangcao\\controllers\\admin\\phongchatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:controllers\\admin\\phongchatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\learn_advanced_web_programming\\btl2\\btlwebnangcao\\btlwebnangcao\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|d:\\learn_advanced_web_programming\\btl2\\btlwebnangcao\\btlwebnangcao\\areas\\identity\\pages\\account\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{087ACA1A-E0B0-4496-A0E7-2353B83ECEF2}|BtlWebNangCao.csproj|solutionrelative:areas\\identity\\pages\\account\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 59,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,15 +58,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PhongChatController.cs",
-              "DocumentMoniker": "D:\\Learn_advanced_web_programming\\BTL2\\BtlWebNangcao\\BtlWebNangCao\\Controllers\\Admin\\PhongChatController.cs",
-              "RelativeDocumentMoniker": "Controllers\\Admin\\PhongChatController.cs",
-              "ToolTip": "D:\\Learn_advanced_web_programming\\BTL2\\BtlWebNangcao\\BtlWebNangCao\\Controllers\\Admin\\PhongChatController.cs*",
-              "RelativeToolTip": "Controllers\\Admin\\PhongChatController.cs*",
-              "ViewState": "AQIAAHYAAAAAAAAAAAAcwIYAAABDAAAA",
+              "DocumentIndex": 1,
+              "Title": "Login.cshtml.cs",
+              "DocumentMoniker": "D:\\Learn_advanced_web_programming\\BTL2\\BtlWebNangcao\\BtlWebNangCao\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
+              "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
+              "ToolTip": "D:\\Learn_advanced_web_programming\\BTL2\\BtlWebNangcao\\BtlWebNangCao\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs*",
+              "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\Login.cshtml.cs*",
+              "ViewState": "AQIAAI0AAAAAAAAAAAAmwJ4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-10T18:13:14.882Z",
+              "WhenOpened": "2025-04-10T19:10:02.957Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Learn_advanced_web_programming\\BTL2\\BtlWebNangcao\\BtlWebNangCao\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\Learn_advanced_web_programming\\BTL2\\BtlWebNangcao\\BtlWebNangCao\\Program.cs*",
+              "RelativeToolTip": "Program.cs*",
+              "ViewState": "AQIAAL4AAAAAAAAAAAAmwM0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-10T19:08:15.252Z",
               "EditorCaption": ""
             }
           ]

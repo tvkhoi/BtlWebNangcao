@@ -151,8 +151,12 @@ namespace BtlWebNangCao.Areas.Identity.Pages.Account
                             return RedirectToAction("Index", "Admin");
                         }
 
-                        // Cập nhật thông tin hoạt động của người dùng
-                        user.LastActiveDate = DateTime.UtcNow.Date; // Cập nhật ngày hiện tại
+                        // Lấy giờ UTC và chuyển đổi sang giờ Việt Nam (GMT+7)
+                        TimeZoneInfo vietnamTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time");
+                        DateTime vietnamTime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, vietnamTimeZone);
+
+                        user.LastActiveDate = vietnamTime.Date;
+
 
                         // Cập nhật vào cơ sở dữ liệu
                         await _userManager.UpdateAsync(user);

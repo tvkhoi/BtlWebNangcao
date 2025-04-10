@@ -198,7 +198,12 @@ app.Use(async (context, next) =>
             if (!context.Request.Path.StartsWithSegments("/Home") && !path.StartsWith("/Chathub", StringComparison.OrdinalIgnoreCase))
             {
                 // Cập nhật LastActiveDate khi người dùng thực hiện một hành động
-                user.LastActiveDate = DateTime.UtcNow;
+                // Lấy giờ UTC và chuyển đổi sang giờ Việt Nam (GMT+7)
+                TimeZoneInfo vietnamTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time");
+                DateTime vietnamTime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, vietnamTimeZone);
+
+                user.LastActiveDate = vietnamTime.Date;
+
                 await userManager.UpdateAsync(user);
                 context.Response.Redirect("/Home");
                 return; // Dừng xử lý tiếp theo
