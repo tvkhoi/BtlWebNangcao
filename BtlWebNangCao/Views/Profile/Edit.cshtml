@@ -1,0 +1,28 @@
+﻿@model BtlWebNangCao.ViewModels.ProfileViewModel
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header text-center bg-primary text-white">
+                    <h4>Chỉnh sửa thông tin cá nhân</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <div class="form-group">
+                            <label for="UserName">Tên người dùng</label>
+                            <input type="text" id="UserName" name="UserName" class="form-control" value="@Model.UserName" required />
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="Email">Email</label>
+                            <input type="email" id="Email" name="Email" class="form-control" value="@Model.Email" required />
+                        </div>
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-primary btn-lg">Cập nhật</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

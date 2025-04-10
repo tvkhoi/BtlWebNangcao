@@ -195,7 +195,7 @@ app.Use(async (context, next) =>
         else if (role == "User")
         {
             // Nếu người dùng đã ở trang User, không điều hướng lại
-            if (!context.Request.Path.StartsWithSegments("/Home") && !path.StartsWith("/Chathub", StringComparison.OrdinalIgnoreCase))
+            if (!context.Request.Path.StartsWithSegments("/Home") && !path.StartsWith("/Chathub", StringComparison.OrdinalIgnoreCase)&& !context.Request.Path.StartsWithSegments("/Profile"))
             {
                 // Cập nhật LastActiveDate khi người dùng thực hiện một hành động
                 // Lấy giờ UTC và chuyển đổi sang giờ Việt Nam (GMT+7)
