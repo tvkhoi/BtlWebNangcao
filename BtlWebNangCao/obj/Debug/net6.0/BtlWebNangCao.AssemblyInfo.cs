@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BtlWebNangCao")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+70cd1226ac7f23e4834e0bb4cbee3c16b84c1d10")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e8d958a0e95fb6362435e610ad75b95499e3885d")]
 [assembly: System.Reflection.AssemblyProductAttribute("BtlWebNangCao")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BtlWebNangCao")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

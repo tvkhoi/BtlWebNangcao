@@ -1,15 +1,290 @@
-﻿@page "/"
-@using Microsoft.AspNetCore.Http
-@inject IHttpContextAccessor HttpContextAccessor
-
+﻿@using System.Security.Claims
 @{
-    var userName = HttpContextAccessor.HttpContext.User.Identity.IsAuthenticated
-        ? HttpContextAccessor.HttpContext.User.Identity.Name
-        : "Guest";
+    ViewData["Title"] = "Trang chủ";
+    var tenNguoiDung = User.Identity?.Name;
+    var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Welcome, @userName!</p>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="row">
+    <!-- Sidebar trái -->
+    <div class="col-12 col-md-4 col-lg-3 mb-3">
+        <div class="bg-white rounded shadow-sm p-3 d-flex flex-column h-100">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5 class="fw-bold text-primary">Phòng Chat</h5>
+                <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#createRoomModal">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+            <ul id="roomList" class="list-group overflow-auto mb-3" style="max-height: 40vh;"></ul>
+
+            <h6 class="fw-bold text-success mt-2">Đang Online</h6>
+            <ul id="onlineUsers" class="list-group overflow-auto" style="max-height: 30vh;"></ul>
+        </div>
+    </div>
+
+    <!-- Khu vực nội dung chat -->
+    <div class="col-12 col-md-8 col-lg-9">
+        <div class="bg-white rounded shadow-sm d-flex flex-column" style="height: 75vh;">
+            <!-- Tiêu đề phòng -->
+            <div class="border-bottom p-3">
+                <h5 id="currentRoomName" class="mb-0 text-primary">Chọn phòng để bắt đầu</h5>
+            </div>
+
+            <!-- Tin nhắn -->
+            <div id="chatMessages" class="flex-grow-1 p-3 overflow-auto" style="background-color: #f8f9fa;"></div>
+
+            <!-- Nhập tin nhắn -->
+            <div class="border-top p-3">
+                <div class="input-group">
+                    <input id="messageInput" type="text" class="form-control" placeholder="Nhập tin nhắn..." onkeydown="if (event.key === 'Enter') sendMessage()" />
+                    <button class="btn btn-success" onclick="sendMessage()">
+                        <i class="fas fa-paper-plane"></i> Gửi
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+<!-- Modal tạo phòng -->
+<div class="modal fade" id="createRoomModal" tabindex="-1" aria-labelledby="createRoomModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form onsubmit="createRoom(event)">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createRoomModalLabel">Tạo phòng mới</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="roomTitle" class="form-label">Tên phòng</label>
+                        <input type="text" id="roomTitle" class="form-control" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="roomDescription" class="form-label">Mô tả</label>
+                        <textarea id="roomDescription" class="form-control" rows="3"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Loại phòng</label>
+                        <select id="roomType" class="form-select">
+                            <option value="true">Công khai</option>
+                            <option value="false">Riêng tư</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Tạo</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Modal thêm người vào phòng -->
+<div class="modal fade" id="addUserToRoomModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form onsubmit="addUserToRoom(event)">
+                <div class="modal-header">
+                    <h5 class="modal-title">Thêm người dùng vào phòng</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="roomIdToAdd" />
+                    <div class="mb-3">
+                        <label for="userIdToAdd" class="form-label">ID hoặc Username người dùng</label>
+                        <input type="text" id="userIdToAdd" class="form-control" placeholder="Nhập ID hoặc username" required />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">Thêm</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.0/signalr.min.js"></script>
+    <script>
+        const currentUserId = '@userId';
+        const userName = '@tenNguoiDung';
+        let currentRoomId = null;
+
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("/chathub")
+            .build();
+
+        connection.start().then(() => {
+            console.log("SignalR connected");
+            loadRooms();
+        }).catch(err => console.error("SignalR connection failed: ", err));
+
+        connection.on("ReceiveMessage", function (data) {
+            if (data.maPhong == currentRoomId) {
+                renderMessage({
+                    senderId: data.nguoiGuiId,
+                    senderName: data.nguoiGui,
+                    content: data.noiDung,
+                    type: data.type
+                });
+            }
+        });
+        connection.on("UsersOnline", function (users) {
+            const list = document.getElementById("onlineUsers");
+            list.innerHTML = '';
+            users.forEach(user => {
+                const li = document.createElement("li");
+                li.className = "list-group-item";
+                li.textContent = user.userName;
+                list.appendChild(li);
+            });
+        });
+
+        function loadRooms() {
+            Promise.all([
+                fetch("/api/rooms/public", {
+                    credentials: "include" // cần thiết nếu dùng cookie-based auth
+                }).then(res => {
+                    if (!res.ok) throw new Error("Không thể tải phòng công khai");
+                    return res.json();
+                }),
+                fetch("/api/rooms/my", {
+                    credentials: "include" // thêm dòng này để đảm bảo cookie được gửi
+                }).then(res => {
+                    if (!res.ok) throw new Error("Không thể tải phòng của bạn (có thể chưa đăng nhập?)");
+                    return res.json();
+                })
+            ]).then(([publicRooms, myRooms]) => {
+                const allRooms = [...myRooms, ...publicRooms.filter(p => !myRooms.some(m => m.maPhong === p.maPhong))];
+                const list = document.getElementById("roomList");
+                list.innerHTML = '';
+                allRooms.forEach(room => {
+                    const item = document.createElement("li");
+                    item.className = "list-group-item list-group-item-action";
+                    item.textContent = room.tieuDe;
+                    item.onclick = () => joinRoom(room.maPhong, room.tieuDe);
+                    list.appendChild(item);
+                });
+            }).catch(error => {
+                console.error("Lỗi loadRooms:", error);
+                alert("Đã có lỗi khi tải danh sách phòng. Vui lòng đăng nhập lại hoặc thử sau.");
+            });
+        }
+
+
+
+
+
+
+        function createRoom(e) {
+            e.preventDefault();
+            const title = document.getElementById('roomTitle').value.trim();
+            const description = document.getElementById('roomDescription').value.trim();
+            const isPublic = document.getElementById('roomType').value === 'true';
+
+            fetch("/api/rooms/create", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ tieuDe: title, moTa: description, laCongKhai: isPublic })
+            })
+                .then(res => {
+                    if (!res.ok) throw new Error("Tạo phòng thất bại");
+                    return res.json();
+                })
+                .then(data => {
+                    bootstrap.Modal.getInstance(document.getElementById('createRoomModal')).hide();
+                    document.getElementById('roomTitle').value = '';
+                    document.getElementById('roomDescription').value = '';
+                    loadRooms();
+
+                    if (!isPublic) {
+                        joinRoom(data.roomId, data.roomName);
+                        setTimeout(() => showAddUserToRoomModal(data.roomId), 500);
+                    }
+                })
+                .catch(err => {
+                    alert(err.message); // hoặc hiển thị lỗi cho người dùng
+                });
+
+        }
+
+        function showAddUserToRoomModal(roomId) {
+            document.getElementById("roomIdToAdd").value = roomId;
+            new bootstrap.Modal(document.getElementById('addUserToRoomModal')).show();
+        }
+
+        function addUserToRoom(e) {
+            e.preventDefault();
+            const roomId = document.getElementById("roomIdToAdd").value;
+            const userInput = document.getElementById("userIdToAdd").value.trim();
+
+            fetch(`/api/members/add`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ roomId: roomId, userIdentifier: userInput })
+            })
+                .then(res => {
+                    if (res.ok) {
+                        alert("Đã thêm người dùng vào phòng.");
+                        bootstrap.Modal.getInstance(document.getElementById('addUserToRoomModal')).hide();
+                    } else {
+                        res.text().then(t => alert("Lỗi: " + t));
+                    }
+                });
+        }
+
+
+        function joinRoom(roomId, roomName) {
+            currentRoomId = roomId;
+            document.getElementById("currentRoomName").innerText = roomName;
+            document.getElementById("chatMessages").innerHTML = '';
+
+            connection.invoke("JoinRoom", roomId);
+
+            fetch(`/api/messages/${roomId}`)
+                .then(res => res.json())
+                .then(data => {
+                    data.forEach(msg => renderMessage({
+                        senderId: msg.nguoiGuiId,
+                        senderName: msg.nguoiGui,
+                        content: msg.noiDung,
+                        type: "ser"
+                    }));
+                });
+        }
+
+        function sendMessage() {
+            const msg = document.getElementById('messageInput').value.trim();
+            if (!msg || !currentRoomId) return;
+
+            connection.invoke("SendMessageToRoom", userName, currentRoomId, msg);
+            document.getElementById('messageInput').value = '';
+        }
+
+        function renderMessage(msg) {
+            const container = document.getElementById('chatMessages');
+            const wrapper = document.createElement('div');
+
+            if (msg.type === 'system') {
+                wrapper.className = 'text-center text-muted fst-italic my-2';
+                wrapper.textContent = msg.content;
+            } else {
+                const isMine = msg.senderId === currentUserId;
+                wrapper.className = 'd-flex mb-2 ' + (isMine ? 'justify-content-end' : 'justify-content-start');
+
+                const bubble = document.createElement('div');
+                bubble.className = 'p-2 rounded shadow-sm';
+                bubble.style.maxWidth = '70%';
+                bubble.style.backgroundColor = isMine ? '#0d6efd' : '#e2e3e5'; // Xanh nếu là mình
+                bubble.style.color = isMine ? 'white' : 'black';
+
+                bubble.innerHTML = `<div class="small fw-bold">${msg.senderName}</div><div>${msg.content}</div>`;
+                wrapper.appendChild(bubble);
+            }
+
+            container.appendChild(wrapper);
+            container.scrollTop = container.scrollHeight;
+        }
+
+    </script>
+}

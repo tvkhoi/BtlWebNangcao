@@ -130,6 +130,7 @@ namespace BtlWebNangCao.Areas.Identity.Pages.Account
                         var userRole = roles.FirstOrDefault() ?? "User";
                         var claims = new List<Claim>
                 {
+                    new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                     new Claim(ClaimTypes.Name, user.UserName),
                     new Claim(ClaimTypes.Email, user.Email),
                     new Claim(ClaimTypes.Role, userRole)

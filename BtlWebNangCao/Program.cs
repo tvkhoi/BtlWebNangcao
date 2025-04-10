@@ -92,13 +92,16 @@ builder.Services.AddSession(options =>
 
 builder.Services.AddCors(options =>
 {
-	options.AddDefaultPolicy(builder =>
-	{
-        builder.AllowAnyOrigin()
-               .AllowAnyHeader()
-               .AllowAnyMethod();
-	});
+    options.AddDefaultPolicy(policy =>
+    {
+        policy
+            .WithOrigins("https://localhost:7031") // 👈 domain frontend của bạn
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials();
+    });
 });
+
 
 
 var app = builder.Build();
@@ -138,6 +141,15 @@ app.UseAuthorization();
 
 app.Use(async (context, next) =>
 {
+    var path1 = context.Request.Path.ToString();
+
+    // BỎ QUA xử lý redirect nếu là request đến API hoặc SignalR
+    if (path1.StartsWith("/api", StringComparison.OrdinalIgnoreCase) ||
+        path1.StartsWith("/chathub", StringComparison.OrdinalIgnoreCase))
+    {
+        await next();
+        return;
+    }
     if (context.User.Identity.IsAuthenticated)
     {
         var role = context.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
@@ -183,7 +195,7 @@ app.Use(async (context, next) =>
         else if (role == "User")
         {
             // Nếu người dùng đã ở trang User, không điều hướng lại
-            if (!context.Request.Path.StartsWithSegments("/Home") && !context.Request.Path.StartsWithSegments("/Chat"))
+            if (!context.Request.Path.StartsWithSegments("/Home") && !path.StartsWith("/Chathub", StringComparison.OrdinalIgnoreCase))
             {
                 // Cập nhật LastActiveDate khi người dùng thực hiện một hành động
                 user.LastActiveDate = DateTime.UtcNow;
