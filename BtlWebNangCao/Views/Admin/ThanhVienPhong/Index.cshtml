@@ -1,0 +1,107 @@
+﻿@model BtlWebNangCao.ViewModels.ThanhVienPhongViewModel
+@{
+    ViewData["Title"] = "Quản lý Thành Viên Phòng";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Quản lý Thành Viên Phòng</h2>
+
+<form method="get" class="row mb-3">
+    <div class="col-md-4">
+        <input name="searchUser" value="@ViewBag.SearchUser" class="form-control" placeholder="Tìm theo tên người dùng" />
+    </div>
+    <div class="col-md-4">
+        <select name="roomId" class="form-select">
+            <option value="">-- Chọn phòng --</option>
+            @foreach (var room in ViewBag.Rooms)
+            {
+                var selected = ViewBag.SelectedRoomId == room.Value ? "selected" : "";
+                <option value="@room.Value" selected="@selected">@room.Text</option>
+            }
+        </select>
+    </div>
+    <div class="col-md-4">
+        <button class="btn btn-primary">Tìm kiếm</button>
+    </div>
+</form>
+
+<a class="btn btn-success mb-3" href="@Url.Action("Create")">➕ Thêm thành viên vào phòng</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Phòng</th>
+            <th>Thành viên</th>
+            <th>Vai trò</th>
+            <th>Ngày tham gia</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tv in Model.DanhSachThanhVien)
+        {
+            <tr>
+                <td>@tv.TenPhong</td>
+                <td>@tv.TenNguoiDung</td>
+                <td>
+                    @if (tv.LaNguoiTao)
+                    {
+                        <span class="badge bg-primary">Moderator</span>
+                    }
+                    else
+                    {
+                        <form asp-action="UpdateVaiTro" method="post" class="d-inline">
+                            <input type="hidden" name="maPhong" value="@tv.MaPhong" />
+                            <input type="hidden" name="maNguoiDung" value="@tv.MaNguoiDung" />
+                            <select name="vaiTro" class="form-select form-select-sm d-inline w-auto" onchange="this.form.submit()">
+                                @if (tv.VaiTro == "Member")
+                                {
+                                    <option value="Member" selected>Member</option>
+                                }
+                                else
+                                {
+                                    <option value="Member">Member</option>
+                                }
+
+                                @if (tv.VaiTro == "Moderator")
+                                {
+                                    <option value="Moderator" selected>Moderator</option>
+                                }
+                                else
+                                {
+                                    <option value="Moderator">Moderator</option>
+                                }
+                            </select>
+                        </form>
+                    }
+                </td>
+                <td>@tv.NgayThamGia.ToString("dd/MM/yyyy")</td>
+                <td>
+                    @if (!tv.LaNguoiTao)
+                    {
+                        <form asp-action="Delete" asp-route-userId="@tv.MaNguoiDung" asp-route-roomId="@tv.MaPhong" method="post" class="d-inline">
+                            <button class="btn btn-danger btn-sm" onclick="return confirm('Xóa thành viên này?')">Xóa</button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@* Phân trang *@
+<nav>
+    <ul class="pagination">
+        @for (int i = 1; i <= Model.TongTrang; i++)
+        {
+            <li class="page-item @(i == Model.TrangHienTai ? "active" : "")">
+                <form method="get" action="@Url.Action("Index", "ThanhVienPhong", new { area = "Admin" })" class="d-inline">
+                    <input type="hidden" name="searchUser " value="@ViewBag.SearchUser " />
+                    <input type="hidden" name="roomId" value="@ViewBag.SelectedRoomId" />
+                    <input type="hidden" name="page" value="@i" />
+                    <button type="submit" class="page-link">@i</button>
+                </form>
+            </li>
+        }
+    </ul>
+</nav>

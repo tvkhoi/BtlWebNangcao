@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Ứng dụng trò chuyện";
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="~/css/chat.css" />
+</head>
+<body>
+    <div class="container-fluid chat-container">
+        <div class="row h-100">
+            <!-- Danh sách phòng - Hiển thị full trên desktop, collapse trên mobile -->
+            <div class="col-md-3 room-list p-0 d-none d-md-block">
+                @await Html.PartialAsync("_RoomList")
+            </div>
+
+            <!-- Khu vực chat - Chiếm toàn bộ width trên mobile -->
+            <div class="col-12 col-md-6 p-0 chat-area">
+                @await Html.PartialAsync("_ChatArea")
+            </div>
+
+            <!-- Danh sách người dùng - Hiển thị full trên desktop, collapse trên mobile -->
+            <div class="col-md-3 user-list p-0 d-none d-md-block">
+                @await Html.PartialAsync("_UserList")
+            </div>
+        </div>
+    </div>
+
+    @await Html.PartialAsync("_CreateRoomModal")
+
+    <!-- Button toggle cho mobile -->
+    <div class="d-md-none fixed-bottom p-2 bg-primary text-white d-flex justify-content-between">
+        <button class="btn btn-sm btn-light" id="toggleRoomList">
+            <i class="bi bi-list-ul"></i> Phòng
+        </button>
+        <button class="btn btn-sm btn-light" id="toggleUserList">
+            <i class="bi bi-people-fill"></i> Người dùng
+        </button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.min.js"></script>
+    <script src="~/js/chat.js"></script>
+</body>
+</html>

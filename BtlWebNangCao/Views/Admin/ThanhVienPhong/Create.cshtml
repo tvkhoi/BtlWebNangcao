@@ -1,0 +1,38 @@
+﻿@model BtlWebNangCao.ViewModels.ThanhVienPhongCreateViewModel
+@{
+    ViewData["Title"] = "Thêm Thành Viên vào Phòng";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Thêm Thành Viên vào Phòng</h2>
+
+<form asp-action="Create" method="post" class="row g-3">
+    <div class="col-md-4">
+        <label for="MaNguoiDung" class="form-label">Người Dùng</label>
+        <select asp-for="MaNguoiDung" asp-items="Model.DanhSachNguoiDung" class="form-select">
+            <option value="">-- Chọn người dùng --</option>
+        </select>
+    </div>
+    <div class="col-md-4">
+        <label for="MaPhong" class="form-label">Phòng Chat</label>
+        <select asp-for="MaPhong" asp-items="Model.DanhSachPhong" class="form-select">
+            <option value="">-- Chọn phòng chat --</option>
+        </select>
+    </div>
+    <div class="col-md-4">
+        <label for="VaiTro" class="form-label">Vai Trò</label>
+        <select asp-for="VaiTro" class="form-select">
+            <option value="Member">Member</option>
+            <option value="Moderator">Moderator</option>
+        </select>
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-success">➕ Thêm thành viên</button>
+        <a href="@Url.Action("Index")" class="btn btn-secondary">⬅ Quay lại</a>
+    </div>
+</form>
+
+@if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+{
+    <div class="alert alert-danger mt-3">@ViewBag.ErrorMessage</div>
+}

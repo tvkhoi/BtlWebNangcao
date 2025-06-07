@@ -1,0 +1,94 @@
+﻿@model X.PagedList.IPagedList<BtlWebNangCao.ViewModels.TinNhanViewModel>
+@using X.PagedList.Mvc.Core
+
+@{
+    ViewData["Title"] = "Quản lý tin nhắn theo phòng";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Quản lý tin nhắn</h2>
+
+<!-- Chọn phòng chat -->
+<div class="mb-3">
+    <label for="phongChatDropdown">Chọn phòng chat:</label>
+    <select id="phongChatDropdown" class="form-control">
+        <option value="">--- Tất cả phòng ---</option>
+        @foreach (var phong in ViewBag.PhongChats)
+        {
+            <option value="@phong.MaPhong">@phong.sTieuDe</option>
+        }
+    </select>
+</div>
+
+<!-- Ô tìm kiếm -->
+<input type="text" id="searchBox" class="form-control mb-3" placeholder="Tìm kiếm tin nhắn...">
+
+<!-- Bảng danh sách tin nhắn -->
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Người gửi</th>
+            <th>Nội dung</th>
+            <th>Ngày gửi</th>
+            <th>Phòng chat</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody id="messageTable">
+        @foreach (var msg in Model)
+        {
+            <tr data-phongchat="@msg.PhongChat">
+                <td>@msg.NguoiGui</td>
+                <td>@msg.NoiDung</td>
+                <td>@msg.NgayGui.ToString("dd/MM/yyyy HH:mm")</td>
+                <td>@msg.PhongChat</td>
+                <td>
+                    <button class="btn btn-danger btn-sm delete-btn" data-id="@msg.MaTinNhan">Xóa</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Phân trang -->
+<div class="d-flex justify-content-center">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, phongChatId = ViewBag.SelectedPhongChat }))
+</div>
+
+<script>
+    // Chọn phòng chat và tải lại trang
+    document.getElementById("phongChatDropdown").addEventListener("change", function () {
+        var selectedId = this.value;
+        window.location.href = "/Admin/TinNhan/?phongChatId=" + selectedId;
+    });
+
+    // Tìm kiếm tin nhắn
+    document.getElementById("searchBox").addEventListener("keyup", function () {
+        var value = this.value.toLowerCase();
+        document.querySelectorAll("#messageTable tr").forEach(row => {
+            row.style.display = row.innerText.toLowerCase().includes(value) ? "" : "none";
+        });
+    });
+
+    // Xóa tin nhắn
+    document.querySelectorAll('.delete-btn').forEach(button => {
+        button.addEventListener('click', function () {
+            var id = this.getAttribute('data-id');
+
+            // Hiển thị hộp thoại xác nhận
+            if (confirm("Bạn có chắc chắn muốn xóa tin nhắn này?")) {
+                fetch('/Admin/TinNhan/Delete/' + id, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' }
+                }).then(response => response.json()).then(data => {
+                    if (data.success) {
+                        location.reload();  // Tải lại trang để cập nhật danh sách
+                    } else {
+                        alert('Không thể xóa tin nhắn.');
+                    }
+                });
+            }
+        });
+    });
+
+</script>

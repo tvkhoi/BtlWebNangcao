@@ -1,0 +1,50 @@
+﻿@page
+@model LoginModel
+@{
+    ViewData["Title"] = "Đăng nhập";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg p-4">
+                <h1 class="text-center text-primary">@ViewData["Title"]</h1>
+                <p class="text-center text-muted">Chào mừng bạn trở lại! Vui lòng đăng nhập.</p>
+
+                <form id="account" method="post">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                    <div class="form-floating mb-3">
+                        <input asp-for="Input.UserNameorEmail" class="form-control" placeholder="Tên đăng nhập hoặc email" autocomplete="username" aria-required="true" />
+                        <label asp-for="Input.UserNameorEmail">Tên đăng nhập hoặc email</label>
+                        <span asp-validation-for="Input.UserNameorEmail" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input asp-for="Input.Password" type="password" class="form-control" placeholder="Mật khẩu" autocomplete="current-password" aria-required="true" />
+                        <label asp-for="Input.Password">Mật khẩu</label>
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3 form-check">
+                        <input class="form-check-input" asp-for="Input.RememberMe"/>
+                        <label asp-for="Input.RememberMe" class="form-check-label">Nhớ tài khoản</label>
+                    </div>
+
+                    <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary mt-3">
+                        <i class="fas fa-sign-in-alt"></i> Đăng nhập
+                    </button>
+
+                    <div class="text-center mt-3">
+                        <p><a id="forgot-password" asp-page="./ForgotPassword" class="text-decoration-none">Quên mật khẩu?</a></p>
+                        <p>Chưa có tài khoản? <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" class="text-decoration-none">Đăng ký ngay</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

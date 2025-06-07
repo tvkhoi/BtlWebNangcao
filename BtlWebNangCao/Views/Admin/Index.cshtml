@@ -1,0 +1,93 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container-fluid">
+    <h2 class="mb-4">📊 Tổng Quan Hệ Thống</h2>
+
+    <!-- Thống kê tổng quan -->
+    <div class="row g-3">
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="card text-white bg-primary">
+                <div class="card-body">
+                    <h5 class="card-title">👥 Người Dùng</h5>
+                    <h2>@Model.TotalUsers</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="card text-white bg-success">
+                <div class="card-body">
+                    <h5 class="card-title">💬 Phòng Chat</h5>
+                    <h2>@Model.TotalRooms</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="card text-white bg-warning">
+                <div class="card-body">
+                    <h5 class="card-title">✉️ Tin Nhắn</h5>
+                    <h2>@Model.TotalMessages</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="card text-white bg-danger">
+                <div class="card-body">
+                    <h5 class="card-title">🟢 Hoạt Động Hôm Nay</h5>
+                    <h2>@Model.ActiveUsersToday</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Biểu đồ -->
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <canvas id="messageChart"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <canvas id="roomChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Biểu đồ tin nhắn
+    var ctx1 = document.getElementById('messageChart').getContext('2d');
+    var messageChart = new Chart(ctx1, {
+        type: 'line',
+        data: {
+            labels: @Html.Raw(Json.Serialize(Model.TotalMessagesPerDayLabels)),  // Dữ liệu nhãn ngày từ model
+            datasets: [{
+                label: 'Tin nhắn / ngày',
+                data: @Html.Raw(Json.Serialize(Model.TotalMessagesPerDay)),  // Dữ liệu số lượng tin nhắn mỗi ngày
+                borderColor: 'blue',
+                borderWidth: 2
+            }]
+        }
+    });
+
+    // Biểu đồ loại phòng (Công khai vs Riêng tư)
+    var ctx2 = document.getElementById('roomChart').getContext('2d');
+    var roomChart = new Chart(ctx2, {
+        type: 'pie',
+        data: {
+            labels: ['Công khai', 'Riêng tư'],
+            datasets: [{
+                data: @Html.Raw(Json.Serialize(Model.RoomTypes)),  // Dữ liệu số lượng phòng công khai và riêng tư
+                backgroundColor: ['#4CAF50', '#FF5733']
+            }]
+        }
+    });
+</script>
+
